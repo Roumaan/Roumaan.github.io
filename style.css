@@ -1,151 +1,169 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Didact+Gothic|Open+Sans|Ubuntu:300');
 header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: rgb(255, 237, 178);
-	width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 237, 178);
+    width: 100vw;
+    z-index: 1;
 }
 
 body {
-	margin: 0px;
-	background-color: bisque;
-	font-family: 'Anonymous Pro', 'Open Sans', 'Ubuntu', 'Didact Gothic', sans-serif;
-	font-size: 0.6rem;
+    margin: 0px;
+    background-color: bisque;
+    font-family: 'Anonymous Pro', 'Open Sans', 'Ubuntu', 'Didact Gothic', sans-serif;
+    font-size: 0.6rem;
 }
 
 main {
-	padding-top: 12vw;
-	transition: .3s;
+    padding-top: 12vw;
+    transition: .3s;
 }
 
 article {
-	padding-top: 12vw;
-	transition: .3s;
+    padding-top: 12vw;
+    transition: .3s;
 }
 
 li {
-	list-style-type: none;
-	text-align: center;
-	margin-left: 5;
+    list-style-type: none;
+    text-align: center;
+    margin-left: 5;
+    position: relative;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 a:link {
-	color: #d08102;
+    color: #d08102;
 }
 
 a:visited {
-	color: #4a3f16;
+    color: #4a3f16;
 }
 
 a:hover {
-	color: #f4cd90;
+    color: #ffb33b;
 }
 
 h1 {
-	text-align: center
+    text-align: center
 }
 
 h2 {
-	text-align: center
+    text-align: center
 }
 
 .hNavUl {
-	margin: 1vw;
-	padding-left: 0;
+    margin: 1vw;
+    padding-left: 0;
 }
 
 .hNavIl {
-	display: inline-block;
-	padding: 1vw;
-	margin: 0.5vw;
-	border-left-style: solid;
-	border-left-width: thin;
-	border-left-color: rgb(255, 218, 96);
-	border-right-style: solid;
-	border-right-width: thin;
-	border-right-color: rgb(255, 218, 96);
+    display: inline-block;
+    padding: 1vw;
+    margin: 0.5vw;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-left-color: rgb(255, 218, 96);
+    border-right-style: solid;
+    border-right-width: thin;
+    border-right-color: rgb(255, 218, 96);
 }
 
 .navInline {
-	text-align: center;
+    text-align: center;
 }
 
 .error {
-	color: red;
+    color: red;
+}
+
+.hint:hover::after {
+    content: attr(hint);
+    opacity: 1;
+}
+
+.hint::after {
+    opacity: 0;
+    content: attr(hint);
+    position: absolute;
+    top: -0.5vw;
+    background-color: #885921;
+    border-radius: 0.8vw;
+    padding: 0.5vw;
+    transition: 0.25s;
 }
 
 @media (min-width:375px) {
-	main {
-		padding-top: 11vw
-	}
-	article {
-		padding-top: 11vw
-	}
-	body {
-		font-size: 0.7rem
-	}
+    main {
+        padding-top: 11vw
+    }
+    article {
+        padding-top: 11vw
+    }
+    body {
+        font-size: 0.7rem
+    }
 }
 
 @media (min-width:425px) {
-	.navInline {
-		display: inline-block;
-		width: 49%;
-	}
-	body {
-		font-size: 0.7rem
-	}
-	main {
-		padding-top: 10vw
-	}
-	article {
-		padding-top: 10vw
-	}
+    .navInline {
+        display: inline-block;
+        width: 49%;
+    }
+    body {
+        font-size: 0.7rem
+    }
+    main {
+        padding-top: 10vw
+    }
+    article {
+        padding-top: 10vw
+    }
 }
 
 @media (min-width: 768px) {
-	body {
-		font-size: 0.8rem;
-	}
-	main {
-		padding-top: 5vw
-	}
-	article {
-		padding-top: 5vw
-	}
+    body {
+        font-size: 0.8rem;
+    }
+    main {
+        padding-top: 5vw
+    }
+    article {
+        padding-top: 5vw
+    }
 }
 
 @media (min-width: 1024px) {
-	body {
-		font-size: 0.9rem
-	}
-	main {
-		padding: 0 15vw;
-		padding-top: 5vw
-	}
-	article {
-		padding-top: 5vw
-	}
+    body {
+        font-size: 0.9rem
+    }
+    main {
+        padding: 0 15vw;
+        padding-top: 5vw
+    }
+    article {
+        padding-top: 5vw
+    }
 }
 
 @media (min-width: 1366px) {
-	body {
-		font-size: 1rem;
-	}
-	main {
-		padding: 0 20vw;
-		padding-top: 3vw
-	}
-	article {
-		padding-top: 3vw
-	}
-	.hNavIl {
-		padding: 0.5vw;
-		margin: 0.2vw;
-	}
+    body {
+        font-size: 1rem;
+    }
+    main {
+        padding: 0 20vw;
+        padding-top: 3vw
+    }
+    article {
+        padding-top: 3vw
+    }
+    .hNavIl {
+        padding: 0.5vw;
+        margin: 0.2vw;
+    }
 }
