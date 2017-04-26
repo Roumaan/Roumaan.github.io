@@ -57,6 +57,15 @@ h2 {
 	text-align: center
 }
 
+footer {
+    text-align: right;
+    background-color: #f5e7ab;
+    padding: 0.25vh;
+    border-top-width:thin medium;
+    border-top-style: outset;
+    border-top-color: #e5ba00;
+}
+
 .hNavUl {
 	margin: 1vw;
 	padding-left: 0;
