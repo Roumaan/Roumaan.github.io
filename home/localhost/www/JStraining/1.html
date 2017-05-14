@@ -1,0 +1,137 @@
+<html>
+
+<head>
+	<script type="text/javascript">
+		function getRadioVal(name,
+			initVal) {
+			var radioVal = initVal;
+			for (var i = 0; i < document.getElementsByName(name).length; i++) {
+				if (document.getElementsByName(name)[i].value != "" &&
+					document.getElementsByName(name)[i].checked) {
+					radioVal = document.getElementsByName(name)[i].value;
+				}
+			}
+			return radioVal;
+		}
+
+		function change() {
+			var timeRange = document.getElementById("range").value;
+			var mult = document.getElementById("mult").value;
+			var anim = document.getElementById("anim");
+
+			var animId = getRadioVal("radio1", 1);
+			var animTFunc = getRadioVal("radio2", "linear");
+
+			anim.style.animationName = "anim" + animId;
+			anim.style.animationDuration = (timeRange * mult) + "s";
+			anim.style.animationTimingFunction = animTFunc;
+		}
+
+	</script>
+
+	<style>
+		@keyframes anim1 {
+			from {
+				transform: translate(0);
+			}
+			50% {
+				transform: translate(500px)
+			}
+			to {
+				transform: translate(0);
+			}
+		}
+		
+		@keyframes anim2 {
+			from {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(250px, 0);
+			}
+			50% {
+				transform: translate(250px, 250px);
+			}
+			75% {
+				transform: translate(0, 250px);
+			}
+			to {
+				transform: translate(0, 0);
+			}
+		}
+		
+		@keyframes anim3 {
+			from {
+				position: absolute;
+				left: 150px;
+				top: 150px;
+				transform: rotate(180deg) translateX(150px) rotate(180deg);
+			}
+			to {
+				position: absolute;
+				left: 150px;
+				top: 150px;
+				transform: rotate(540deg) translateX(150px) rotate(540deg);
+			}
+		}
+		                 
+		.inline {
+			padding-right: 50px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		.rel {
+			position: relative;
+		}
+		
+		.anim {
+			background-color: #ff9300;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			animation: anim1 2s infinite linear;
+		}
+		
+		.mult {
+			width: 50px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<form onchange="change();">
+		<p><input type="range" id="range"> Animation duration 0-100</p>
+		<p><input type="number" id="mult" class="mult" step="0.1" value="0.1" min="0" max="2"> Animation duration multiepler</p>
+	</form>
+
+	<form onchange="change();" class="inline">
+		<p>Animation timing function</p>
+		<p><input name="radio2" type="radio" value="linear" id="1" checked> linear</p>
+		<p><input name="radio2" type="radio" value="ease" id="2"> ease</p>
+		<p><input name="radio2" type="radio" value="ease-in" id="3"> ease-in</p>
+		<p><input name="radio2" type="radio" value="ease-out" id="4"> ease-out</p>
+		<p><input name="radio2" type="radio" value="ease-in-out" id="5"> ease-in-out</p>
+	</form>
+
+	<form onchange="change();" class="inline">
+		<p>Animation name</p>
+		<p><input name="radio1" type="radio" value="1" id="1" checked> anim1</p>
+		<p><input name="radio1" type="radio" value="2" id="2"> anim2</p>
+		<p><input name="radio1" type="radio" value="3" id="3"> anim3</p>
+	</form>
+
+
+
+	<div class="rel">
+		<div class="anim" id="anim"></div>
+	</div>
+
+	<script>
+		change();
+
+	</script>
+</body>
+
+</html>

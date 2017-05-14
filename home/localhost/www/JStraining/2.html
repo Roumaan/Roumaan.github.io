@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script>
+		function registration() {
+			var email = document.forms[0].email.value
+			var login = document.forms[0].login.value;
+			var password = document.forms[0].password.value;
+
+			if (password.length <= 10){
+				alert("Пароль должен быть больше 10 символов!");
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="registration();">
+		<p><input type="email" id="email"> Эл. почта</p>
+		<p><input id="login"> Логин</p>
+		<p><input type="password" id="password"> Пароль</p>
+		<input type="submit" value="Потдвердить" >
+	</form>
+</body>
+</html>
