@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Паровозик ЧУХ-ЧУХ</title>
+	<style>
+		@keyframes road1 {
+			from {
+				transform: translate(0, 0);
+			}
+			to {
+				transform: translate(500px, 0);
+			}
+		}
+		
+		.anim1 {
+			animation: road1 5s infinite ease-in-out;
+			display: block;
+		}
+		
+		@keyframes road2 {
+			from {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(500px, 0);
+			}
+			to {
+				transform: translate(0px, 0);
+			}
+		}
+		
+		.anim2 {
+			animation: road2 20s infinite ease-in-out;
+			display: block;
+		}
+		
+		@keyframes road3 {
+			from {
+				transform: translate(0, 0) rotate3d(0, 1, 0, 0deg);
+			}
+			49% {
+				transform: translate(500px, 0) rotate3d(0, 1, 0, 0deg);
+			}
+			50% {
+				transform: translate(500px, 0) rotate3d(0, 1, 0, 180deg);
+			}
+			99% {
+				transform: translate(0px, 0) rotate3d(0, 1, 0, 180deg);
+			}
+			to {
+				transform: translate(0px, 0) rotate3d(0, 1, 0, 0deg);
+			}
+		}
+		
+		.anim3 {
+			animation: road3 10s infinite ease-in-out;
+			display: block;
+		}
+		
+		@keyframes road4 {
+			from{transform: translate(0,0);}
+            25% {transform: translate(500px,0) rotate(0deg);}
+            26% {transform: translate(500px,0) rotate(90deg);}
+            50% {transform: translate(500px,500px) rotate(90deg);}
+            51% {transform: translate(500px,500px) rotate(180deg);}
+            75% {transform: translate(0px,500px) rotate(180deg);}
+            76% {transform: translate(0px,500px) rotate(270deg);}
+            99% {transform: translate(0px,0px) rotate(270deg);}
+            to{transform: translate(0,0) rotate(360deg);}
+		}
+		
+		.anim4 {
+			animation: road4 10s infinite ease-in-out;
+			display: block;
+		}
+		
+		.imgHandler {
+			height:750px;
+		}
+	</style>
+</head>
+
+<body>
+	<img class="anim1" src="https://my.informatics.ru/media/ck_uploads/shelamov_va/2017/04/26/parovozik.png" alt="parovozik">
+	<img class="anim2" src="https://my.informatics.ru/media/ck_uploads/shelamov_va/2017/04/26/parovozik.png" alt="parovozik">
+	<img class="anim3" src="https://my.informatics.ru/media/ck_uploads/shelamov_va/2017/04/26/parovozik.png" alt="parovozik">
+	<div class="imgHandler">
+	<img class="anim4" src="https://my.informatics.ru/media/ck_uploads/shelamov_va/2017/04/26/parovozik.png" alt="parovozik">
+	</div>
+</body>
+</html>
