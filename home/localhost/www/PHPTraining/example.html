@@ -1,0 +1,153 @@
+<html>
+
+<head>
+	<script type="text/javascript">
+		// \/ Функция полученя значения радио кнопок 
+		function getRadioVal(name /*Имя радиокнопок*/ ,
+			initVal /*Значение если радиокнопок нет*/ ) {
+			var radioVal = initVal;
+
+			//Перебор радиокнопок по имени
+			for (var i = 0; i < document.getElementsByName(name).length; i++) {
+				//Если значение радиокнопки есть и она выбрана,
+				if (document.getElementsByName(name)[i].value != "" &&
+					document.getElementsByName(name)[i].checked) {
+					//то переписать её значение в возвращемую переменную
+					radioVal = document.getElementsByName(name)[i].value;
+				}
+			}
+			return radioVal; //Вернуть результат
+		}
+
+		// \/ Получить весь ввод и обновить анимацию
+		function change() {
+			var anim = document.getElementById("anim"); //Получаем анимируемый объект
+
+			var time = document.getElementById("time").value; //Получаем время воспроизведения анимации
+			var animId = getRadioVal("animName", 1); //Получаем номер анимации
+			var animTFunc = getRadioVal("animTimeFunc", "linear"); //Получаем правило воспроизведения анимации
+
+			anim.style.animationName = "anim" + animId; //Устанавиливаем анимацию на анимируемый объект
+			anim.style.animationDuration = time + "s"; //Устанавливаем время воспроизведения анимации
+			anim.style.animationTimingFunction = animTFunc; //Устанавливаем правило воспроизведения анимации
+			anim.style.animationIterationCount = "infinite" //Устанавливаем колл-во воспроизведений на бесконечное		
+		}
+	</script>
+
+	<style>
+		/*Анимации*/
+		
+		@keyframes anim1 {
+			from {
+				transform: translate(0);
+			}
+			50% {
+				transform: translate(500px)
+			}
+			to {
+				transform: translate(0);
+			}
+		}
+		
+		@keyframes anim2 {
+			from {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(250px, 0);
+			}
+			50% {
+				transform: translate(250px, 250px);
+			}
+			75% {
+				transform: translate(0, 250px);
+			}
+			to {
+				transform: translate(0, 0);
+			}
+		}
+		
+		@keyframes anim3 {
+			from {
+				position: absolute;
+				left: 150px;
+				top: 150px;
+				transform: rotate(180deg) translateX(150px) rotate(180deg);
+			}
+			to {
+				position: absolute;
+				left: 150px;
+				top: 150px;
+				transform: rotate(540deg) translateX(150px) rotate(540deg);
+			}
+		}
+		/*Стили для ввода*/
+		
+		.inline {
+			padding-right: 50px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		.mult {
+			width: 50px;
+		}
+		/*Стили для анимации*/
+		
+		.rel {
+			position: relative;
+		}
+		
+		.anim {
+			background-color: #ff9300;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!--Форма ввода правила воспроизведения анимации-->
+	<form onchange="change();" class="inline">
+		<p>Animation timing function</p>
+		<p><input name="animTimeFunc" type="radio" value="linear" id="1" checked> linear</p>
+		<p><input name="animTimeFunc" type="radio" value="ease" id="2"> ease</p>
+		<p><input name="animTimeFunc" type="radio" value="ease-in" id="3"> ease-in</p>
+		<p><input name="animTimeFunc" type="radio" value="ease-out" id="4"> ease-out</p>
+		<p><input name="animTimeFunc" type="radio" value="ease-in-out" id="5"> ease-in-out</p>
+	</form>
+
+	<form onchange="change();" class="inline">
+		<p>Animation name</p>
+		<!--animName radio flag //Место для установки радиокнопок выбора анимации-->
+
+
+
+
+
+
+
+
+
+
+	</form>
+
+	<!--Форма ввода времени воспроизведения анимации-->
+	<form oninput="change();">
+		<p><input type="number" id="time" class="mult" step="0.1" value="0.7" min="0" max="2"> Animation duration multiepler</p>
+	</form>
+
+	<!--Анимируемый объект-->
+	<div class="rel">
+		<div class="anim" id="anim"></div>
+	</div>
+
+	<script>
+		//Обновить анимацию при загрузке
+		change();
+	</script>
+</body>
+
+</html>
