@@ -4,27 +4,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link href="../JStraining/style.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
 	<link href="prism.css" rel="stylesheet" />
 
 	<style>
 		pre {
-			font-size: 1em;
-			width: 46.5vw;
+			font-size: 0.9em;
+			width: 46vw;
 			height: 85vh;
 			display: inline-block;
 		}
 		
 		iframe {
 			display: inline-block;
-			width: 46.5vw;
+			width: 46vw;
 			height: 90vh;
 		}
 
 	</style>
 </head>
 
-<body onload="work();">
+<body>
 	<pre><code class="language-css" >/*Движение вперёд на 500 пикселей*/
 @keyframes anim1 {
 	from {
@@ -72,10 +72,8 @@
 		transform: rotate(540deg) translateX(150px) rotate(540deg);
 	}
 }</code></pre>
-	<iframe align="right" src="../JStraining/1.html"></iframe>
-
+	<iframe align="right" src="preview.php" scrolling="yes" frameborder="0"></iframe>
 	<script src="prism.js"></script>
-	<script src="Animations/animPreview.js" ></script>
 </body>
 
 </html>

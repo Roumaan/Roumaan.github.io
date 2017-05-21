@@ -93,9 +93,43 @@
 		}
 	}
 
-	createPreview ("../JStraining/style.css",
-							"example.html",
-							"preview.html");
+	function writeToDB ($styleAddres) {
+		global $animLines;
+		
+		findAnims($styleAddres);
+		renameAnims($styleAddres);
+		
+		$dblocation = "localhost"; // Имя сервера
+		$dbuser = "root";          // Имя пользователя
+		$dbpasswd = "";            // Пароль
+		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+		mysql_select_db('projectbd') or die('bd');
+		$query = 'SELECT * FROM `animations`';
+		$result = mysql_query($query) or die('not: ' .mysql_error());
+		
+		
+		$animationsCount = count($animLines);
+		$rate = rand(0, 2500);
+		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`) VALUES ('testi', '$styleAddres', 'admin', $rate , $animationsCount );";
+		mysql_query($write) or die('not: ' .mysql_error());
+		
+		$result = mysql_query($query) or die('not: ' 	.mysql_error());
+		
+		echo "<table border=\"1px\">";
+		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    		echo "\t<tr>";
+    		foreach ($line as $col_value) {
+        		echo "\t\t<td>$col_value</td>";
+    		}
+    		echo "\t</tr>";
+		}
+		echo "</table>";
+	}
+
+
+	writeToDB ("style.css");
+
+	
 
 /*
 НЕНУЖНАЯ ХУЙНЯ
