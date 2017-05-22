@@ -1,12 +1,12 @@
 @keyframes anim1 {
 	from {
-		transform: translate(0);
+		transform: translateX(0);
 	}
 	50% {
-		transform: translate(500px)
+		transform: translateX(500px)
 	}
 	to {
-		transform: translate(0);
+		transform: translateX(0);
 	}
 }
 
