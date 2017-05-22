@@ -1,31 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+echo header('Content-type: text/html; charset=utf-8');
+?>
+	<!DOCTYPE html>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link href="style.css" rel="stylesheet" />
-	<link href="prism.css" rel="stylesheet" />
+	<html lang="ru">
 
-	<style>
-		pre {
-			font-size: 0.9em;
-			width: 46vw;
-			height: 85vh;
-			display: inline-block;
-		}
-		
-		iframe {
-			display: inline-block;
-			width: 46vw;
-			height: 90vh;
-		}
+	<head>
 
-	</style>
-</head>
+		<meta charset="UTF-8">
+		<title>Название</title>
+		<link href="style.css" rel="stylesheet" />
+		<link href="prism.css" rel="stylesheet" />
+		<script src="prism.js"></script>
 
-<body>
-	<pre><code class="language-css" >/*Движение вперёд на 500 пикселей*/
+		<style>
+			header {
+				background-color: bisque;
+			}
+			
+			pre {
+				font-size: 0.9em;
+				height: 50vh;
+			}
+			
+			iframe {
+				width: 96vw;
+				height: 50vh;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<svg></svg>
+			<nav>
+				<ul>
+					<li><a href="#">Популярное</a></li>
+					<li><a href="#">Лучшее</a></li>
+					<li><a href="#">Новое</a></li>
+					<li><a href="#">О сайте</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<h1>Название</h1>
+			<iframe src="preview.php" scrolling="yes"></iframe>
+			<pre><code class="language-css" >/*Движение вперёд на 500 пикселей*/
 @keyframes anim1 {
 	from {
 		transform: translate(0);
@@ -72,8 +94,17 @@
 		transform: rotate(540deg) translateX(150px) rotate(540deg);
 	}
 }</code></pre>
-	<iframe align="right" src="preview.php" scrolling="yes" frameborder="0"></iframe>
-	<script src="prism.js"></script>
-</body>
+		</main>
 
-</html>
+		<footer>
+			<p>Автор</p>
+			<p style="float:right">Рейтинг</p>
+			<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
+			<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
+		</footer>
+	</body>
+
+	</html>
+	<?
+
+?>
