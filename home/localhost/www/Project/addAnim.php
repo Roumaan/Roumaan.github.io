@@ -89,6 +89,15 @@
 		echo "</table>";
 	}
 
+	$uploaddir = 'Z:\\\\home\\\\localhost\\\\www\\\\animations\\\\';
+	$uploadfile = $uploaddir . basename($_FILES['fileName']['name']);
 
-	writeToDB ($_GET['name'], $_GET['author'], $_GET['fileName']);
+	if (move_uploaded_file($_FILES['fileName']['tmp_name'], $uploadfile)) {
+		writeToDB ($_GET['name'], $_GET['author'], $uploadfile);
+    	echo "Файл корректен и был успешно загружен.\n";
+	} else {
+    	echo "Возможная атака с помощью файловой загрузки!\n";
+	}
+
+print_r($_FILES);
 ?>

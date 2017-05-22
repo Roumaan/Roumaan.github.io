@@ -7,10 +7,14 @@
 </head>
 
 <body>
-	<form action="addAnim.php">
-		<p><input type="text">Имя</p>
-		<p><input type="text">Автор</p>
-		<p><input type="file"></p>
+	<form>
+		<p><input type="text" name="name">Имя</p>
+		<p><input type="text" name="author">Автор</p>
+
+	</form>
+
+	<form action="addAnim.php" method="post" enctype="multipart/form-data">
+		<p><input type="file" name="fileName" accept="text/css"></p>
 		<p><input type="submit"></p>
 	</form>
 </body>
