@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Сложные анимации</title>
+
+	<style>
+		@keyframes anim1 {
+			from {
+				background-color: red;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+				left: calc(50% - 50px);
+			}
+			25% {
+				background-color: green;
+				width: 200px;
+				height: 200px;
+				border-radius: 100px;
+				left: calc(50% - 100px);
+			}
+			50% {
+				background-color: blue;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+				left: calc(50% - 50px);
+			}
+			75% {
+				background-color: yellow;
+				width: 200px;
+				height: 200px;
+				border-radius: 100px;
+				left: calc(50% - 100px);
+			}
+			to {
+				background-color: red;
+				width: 100px;
+				height: 100px;
+				border-radius: 50px;
+				left: calc(50% - 50px);
+			}
+		}
+		
+		@keyframes anim2 {
+			from {
+				background-image: url(1.jpg);
+			}
+			33% {
+				background-image: url(2.jpg);
+			}
+			66% {
+				background-image: url(3.jpg);
+			}
+			to {
+				background-image: url(4.jpg);
+			}
+		}
+		
+		@keyframes anim3 {
+			from {
+				transform: translate(0, 0);
+				border-radius: 0%;
+			}
+			25% {
+				transform: translate(200px, 0);
+				border-radius: 50%;
+			}
+			50% {
+				transform: translate(200px, 200px);
+				border-radius: 0%;
+			}
+			75% {
+				transform: translate(0, 200px);
+				border-radius: 50%;
+			}
+			to {
+				transform: translate(0, 0);
+				border-radius: 0%;
+			}
+		}
+		
+		.animated1 {
+			animation: anim1 infinite 3s;
+			position: relative;
+		}
+		
+		.animated2 {
+			animation: anim2 infinite 5s;
+			background-repeat: no-repeat;
+			width: 100vw;
+			height: 50vh;
+		}
+		
+		.animated3 {
+			position: absolute;
+			animation: anim3 infinite 4s;
+			width: 100px;
+			height: 100px;
+		}
+		
+		.anim3-1 {
+			animation-delay: 0s;
+			background-color: red;
+		}
+		
+		.anim3-2 {
+			animation-delay: -1s;
+			background-color: green;
+		}
+		
+		.anim3-3 {
+			animation-delay: -2s;
+			background-color: blue;
+		}
+		
+		.anim3-4 {
+			animation-delay: -3s;
+			background-color: yellow;
+		}
+		
+		.rel {
+			position: relative;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div style="height:200px;">
+		<div class="animated1"></div>
+	</div>
+	<div class="animated2"></div>
+	<div class="rel">
+		<div class="animated3 anim3-1 "></div>
+		<div class="animated3 anim3-2"></div>
+		<div class="animated3 anim3-3"></div>
+		<div class="animated3 anim3-4"></div>
+	</div>
+</body>
+
+</html>

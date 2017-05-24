@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		@keyframes road1 {
+			from {
+				transform: translate(0, 0);
+			}
+			to {
+				transform: translate(500px, 0);
+			}
+		}
+		
+		@keyframes road2 {
+			from {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(500px, 0);
+			}
+			to {
+				transform: translate(0, 0);
+			}
+		}
+		
+		@keyframes road3 {
+			from {
+				transform: translate(0, 0);
+			}
+			49.9% {
+				transform: translate(500px, 0) rotate3d(0, 1, 0, 0deg);
+				;
+			}
+			50% {
+				transform: translate(500px, 0) rotate3d(0, 1, 0, 180deg);
+			}
+			99.9% {
+				transform: translate(0px, 0) rotate3d(0, 1, 0, 180deg);
+			}
+			to {
+				transform: translate(0, 0);
+			}
+		}
+		
+		@keyframes road4 {
+			from {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(500px, 0) rotate(0deg);
+			}
+			26% {
+				transform: translate(500px, 0) rotate(90deg);
+			}
+			50% {
+				transform: translate(500px, 500px) rotate(90deg);
+			}
+			51% {
+				transform: translate(500px, 500px) rotate(180deg);
+			}
+			75% {
+				transform: translate(0px, 500px) rotate(180deg);
+			}
+			76% {
+				transform: translate(0px, 500px) rotate(270deg);
+			}
+			99% {
+				transform: translate(0px, 0) rotate(270deg);
+			}
+			to {
+				transform: translate(0, 0);
+			}
+		}
+		
+		.anim1 {
+			animation: road1 infinite ease-in-out 5s;
+		}
+		
+		.anim2 {
+			animation: road2 infinite 20s;
+		}
+		
+		.anim3 {
+			animation: road3 infinite 10s;
+		}
+		
+		.anim4 {
+			animation: road4 infinite 10s;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<div>
+		<img class="anim1" src="parovozik.png" alt="parovozik">
+	</div>
+	<div>
+		<img class="anim2" src="parovozik.png" alt="parovozik">
+	</div>
+	<div>
+		<img class="anim3" src="parovozik.png" alt="parovozik">
+	</div>
+	<div>
+		<img class="anim4" src="parovozik.png" alt="parovozik">
+	</div>
+
+	<div style="height:1000px"></div>
+</body>
+
+</html>
