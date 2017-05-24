@@ -60,22 +60,13 @@
 	function writeToDB ($name, $author, $styleAddres) {
 		
 		$animLines = findAnims($styleAddres);
-		renameAnims($styleAddres, $animLines);
-		
-		$dblocation = "localhost"; // Имя сервера
-		$dbuser = "root";          // Имя пользователя
-		$dbpasswd = "";            // Пароль
-		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
-		mysql_select_db('projectbd') or die('bd');
-		$query = 'SELECT * FROM `animations`';
-		$result = mysql_query($query) or die('not: ' .mysql_error());
-		
-		
+		renameAnims($styleAddres, $animLines);		
+				
 		$animationsCount = count($animLines);
 		$rate = rand(0, 2500);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`) VALUES ('$name', '$styleAddres', '$author', $rate , $animationsCount );";
 		mysql_query($write) or die('not: ' .mysql_error());
-		
+		$query = 'SELECT * FROM `animations`';
 		$result = mysql_query($query) or die('not: ' 	.mysql_error());
 		
 		echo "<table border=\"1px\">";
@@ -89,11 +80,25 @@
 		echo "</table>";
 	}
 
-	$uploaddir = 'Z:\\\\home\\\\localhost\\\\www\\\\animations\\\\';
-	$uploadfile = $uploaddir . basename($_FILES['fileName']['name']);
 
-	if (move_uploaded_file($_FILES['fileName']['tmp_name'], $uploadfile)) {
-		writeToDB ($_GET['name'], $_GET['author'], $uploadfile);
+	function conectToDB () {
+		$dblocation = "localhost"; // Имя сервера
+		$dbuser = "root";          // Имя пользователя
+		$dbpasswd = "";            // Пароль
+		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+		mysql_select_db('projectbd') or die('bd');
+	}
+
+	conectToDB();
+	$auto=mysql_query("SHOW TABLE STATUS LIKE 'animations'");
+	$auto=mysql_fetch_assoc($auto);
+	$fileID = $auto['Auto_increment'];
+	echo $fileID;
+	$uploaddir = "Z:\\\\home\\\\localhost\\\\www\\\\Project\\\\animations\\\\anim$fileID.css";
+	$uploadfile = $uploaddir;
+
+	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+		writeToDB ($_POST['name'], $_POST['author'], $uploadfile);
     	echo "Файл корректен и был успешно загружен.\n";
 	} else {
     	echo "Возможная атака с помощью файловой загрузки!\n";
