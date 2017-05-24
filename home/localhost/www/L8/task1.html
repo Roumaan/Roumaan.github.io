@@ -2,6 +2,7 @@
 <html lang="ru">
 
 <head>
+	<meta name="viewport" content="width=device-width">
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
@@ -11,7 +12,36 @@
 			margin: 10px;
 		}
 		
-		@media (min-width:400px) {}
+		body {
+			font-size: 2rem;
+		}
+		
+		@media (min-width: 768px) {
+			body {
+				font-size: 2.2rem;
+			}
+			.block {
+				width: 300px;
+				background-color: green;
+				display: inline-block;
+			}
+		}
+		
+		@media (min-width: 1024px) {
+			body {
+				font-size: 2.4rem;
+			}
+			.block {
+				width: 250px;
+				background-color: red;
+			}
+		}
+		
+		@media (min-width: 1366px) {
+			body {
+				font-size: 2.6rem;
+			}
+		}
 
 	</style>
 </head>
