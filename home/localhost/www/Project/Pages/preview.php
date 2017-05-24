@@ -2,10 +2,10 @@
 
 <head>
 	<!--Анимации-->
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../Styles/style.css">
 
 	<!--Скрипт preview-->
-	<script type="text/javascript" src="animationPreview.js"></script>
+	<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
 
 
 	<style>
@@ -98,7 +98,7 @@
 		$animCount = $values['animationsCount'];
 		echo "<script>var animCount = $animCount;</script>";
 	?>
-		<script type="text/javascript" src="preparePreview.js"></script>
+		<script type="text/javascript" src="../Scripts/JS/preparePreview.js"></script>
 </body>
 
 </html>

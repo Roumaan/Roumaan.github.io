@@ -9,9 +9,9 @@ echo header('Content-type: text/html; charset=utf-8');
 
 		<meta charset="UTF-8">
 		<title>Название</title>
-		<link href="style.css" rel="stylesheet" />
-		<link href="prism.css" rel="stylesheet" />
-		<script src="prism.js"></script>
+		<link href="../Styles/style.css" rel="stylesheet" />
+		<link href="../Styles/prism.css" rel="stylesheet" />
+		<script src="../Scripts/JS/prism.js"></script>
 
 		<style>
 			header {
@@ -46,7 +46,7 @@ echo header('Content-type: text/html; charset=utf-8');
 
 		<main>
 			<h1>Название</h1>
-			<iframe src="preview.php" scrolling="yes"></iframe>
+			<iframe src="../Pages/preview.php" scrolling="yes"></iframe>
 			<pre><code class="language-css" >/*Движение вперёд на 500 пикселей*/
 @keyframes anim1 {
 	from {
