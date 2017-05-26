@@ -43,55 +43,10 @@
 	</header>
 
 	<main>
-		<h1>Название</h1>
+		<h2 id="animName">Название</h2>
 		<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
-		<pre><code class="language-css" >/*Движение вперёд на 500 пикселей*/
-@keyframes anim1 {
-	from {
-		transform: translate(0);
-	}
-	50% {
-		transform: translate(500px)
-	}
-	to {
-		transform: translate(0);
-	}
-}
-
-/*Движение по квадрату со стороной 250px */
-@keyframes anim2 {
-	from {
-		transform: translate(0, 0);
-	}
-	25% {
-		transform: translate(250px, 0);
-	}
-	50% {
-		transform: translate(250px, 250px);
-	}
-	75% {
-		transform: translate(0, 250px);
-	}
-	to {
-		transform: translate(0, 0);
-	}
-}
-
-/*Движение по кругу*/
-@keyframes anim3 {
-	from {
-		position: absolute;
-		left: 150px;
-		top: 150px;
-		transform: rotate(180deg) translateX(150px) rotate(180deg);
-	}
-	to {
-		position: absolute;
-		left: 150px;
-		top: 150px;
-		transform: rotate(540deg) translateX(150px) rotate(540deg);
-	}
-}</code></pre>
+		<pre><code class="language-css" id="styleCode">
+</code></pre>
 	</main>
 
 	<footer>
@@ -111,15 +66,33 @@
 		mysql_select_db('projectbd') or die('bd');
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
 		$result = mysql_query($query) or die('not:' .mysql_error());
-
 		$values = mysql_fetch_array($result);
+	
 		$animCount = $values['animationsCount'];
-		echo "<script>var animCount = $animCount;</script>";
+		$name = $values['name'];
+		
+		$styleFile = file($values['styleFile']);
+	
+		for ($i = 0; $i < count($styleFile); $i++) {
+			$PCREpattern  =  '/\r\n|\r|\n/u';
+			$styleFile[$i] = preg_replace($PCREpattern, '', $styleFile[$i]);
+ 
+			$styleCode = $styleCode.$styleFile[$i]."<br>";
+		}
+		
+		echo "<script>
+		var animCount = $animCount; var name = \"$name\";\n var styleCode = \"$styleCode\";
+		</script>";
 	?>
 
 		<script>
-			var preview = document.getElementById("preview");
-			preview.src = "preview.php?animCount=" + animCount;
+			document.getElementById("preview").src = "preview.php?animCount=" + animCount;
+			document.getElementById("animName").innerText = name;
+
+			styleCode = styleCode.replace(new RegExp("<br>", 'g'), "\n");
+			alert();
+
+			document.getElementById("styleCode").innerHTML = styleCode;
 
 		</script>
 </body>
