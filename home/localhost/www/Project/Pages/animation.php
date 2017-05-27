@@ -10,6 +10,23 @@
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
 
+
+	<style>
+		header {
+			background-color: bisque;
+		}
+		
+		pre {
+			font-size: 0.9em;
+			height: 50vh;
+		}
+		
+		iframe {
+			width: 96vw;
+			height: 50vh;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -32,7 +49,7 @@
 			<pre><code class="language-css" id="styleCode">
 			</code></pre>
 		</div>
-
+		
 	</main>
 
 	<footer>
