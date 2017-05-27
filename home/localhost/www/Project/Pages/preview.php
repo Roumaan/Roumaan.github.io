@@ -1,51 +1,65 @@
 <html>
 
 <head>
-	<!--Анимации-->
-	<link rel="stylesheet" href="../Styles/style.css">
+	<?
+		$dblocation = "localhost"; // Имя сервера
+		$dbuser = "root";          // Имя пользователя
+		$dbpasswd = "";            // Пароль
+		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+		$ID = $_GET['ID'];
 
-	<!--Скрипт preview-->
-	<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
+		mysql_select_db('projectbd') or die('bd');
+		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
+		$result = mysql_query($query) or die('not:' .mysql_error());
+		$values = mysql_fetch_array($result);
+	
+		$animAddres = $values['styleFile'];
+		echo "<link rel=\"stylesheet\" href=\"$animAddres\">"
+	?>
 
 
-	<style>
-		/*Стили для ввода*/
-		
-		.left {
-			width: auto;
-		}
-		
-		.inline {
-			padding-right: 50px;
-			display: inline-block;
-			vertical-align: top;
-		}
-		
-		.mult {
-			width: 50px;
-			vertical-align: top;
-		}
-		
-		p {
-			width: auto;
-		}
-		/*Стили для анимации*/
-		
-		.rel {
-			position: relative;
-			width: 10%;
-			display: inline-block;
-		}
-		
-		.anim {
-			display: inline-block;
-			background-color: #ff9300;
-			width: 100px;
-			height: 100px;
-			border-radius: 50%;
-		}
+		<!--Скрипт preview-->
+		<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
 
-	</style>
+
+		<style>
+			/*Стили для ввода*/
+			
+			.left {
+				width: auto;
+			}
+			
+			.inline {
+				padding-right: 50px;
+				display: inline-block;
+				vertical-align: top;
+			}
+			
+			.mult {
+				width: 50px;
+				vertical-align: top;
+			}
+			
+			p {
+				width: auto;
+			}
+			/*Стили для анимации*/
+			
+			.rel {
+				position: relative;
+				width: 10%;
+				display: inline-block;
+			}
+			
+			.anim {
+				display: inline-block;
+				background-color: #ff9300;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+
+		</style>
 </head>
 
 <body>

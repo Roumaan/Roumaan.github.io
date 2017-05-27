@@ -81,16 +81,18 @@
 		}
 		
 		echo "<script>
-		var animCount = $animCount; var name = \"$name\";\n var styleCode = \"$styleCode\";
+			var ID=\"$ID\";
+			var animCount = $animCount; 
+			var name = \"$name\";
+			var styleCode = \"$styleCode\"; 	
 		</script>";
 	?>
 
 		<script>
-			document.getElementById("preview").src = "preview.php?animCount=" + animCount;
+			document.getElementById("preview").src = "preview.php?animCount=" + animCount + "&ID=" + ID;
 			document.getElementById("animName").innerText = name;
 
 			styleCode = styleCode.replace(new RegExp("<br>", 'g'), "\n");
-			alert();
 
 			document.getElementById("styleCode").innerHTML = styleCode;
 
