@@ -86,20 +86,39 @@ main {
 	text-align: center;
 }
 
-iframe {
-	width: 300px;
+#iframe {
+	box-sizing: border-box;
+	width: 96%;
 	border-radius:5px;
-	padding:15px;
-	border: 1px solid #EAEFF2;
-	margin: 10x;
+	margin:auto;
+	border: 1px solid #CED3D5;
+}
+
+iframe{
+	width:100%;
+	border:none;
 	background-color: #FFF;
 }
 
 #pre {
-	width: 70%;
+	padding:0;
+	width: 96%;
+	height:300px;
 	margin: auto;
+}
+
+pre,
+code{
+	font-size:0,9em;
+	box-sizing: border-box;
+	height:300px;
 }
 
 #preview {
 	height: 450px;
+}
+
+footer{
+	background-color:#293F50;
+	height:100px;
 }
