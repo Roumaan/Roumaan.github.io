@@ -6,6 +6,20 @@
 
 	<!--Скрипт preview-->
 	<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
+	<script type="text/javascript">
+		function parametrs(){
+			document.getElementById("parametrs").style.display = "inline-block";
+			document.getElementById("animation").style.display = "none";
+		}
+		function animation(){
+			document.getElementById("animation").style.display = "inline-block";
+			document.getElementById("parametrs").style.display = "none";
+		}
+		function all(){
+			document.getElementById("animation").style.display = "inline-block";
+			document.getElementById("parametrs").style.display = "inline-block";
+		}
+	</script>
 
 
 	<style>
@@ -49,8 +63,13 @@
 </head>
 
 <body>
+	<p>
+		<button onclick="parametrs()">parametrs</button>
+		<button onclick="animation()">animation</button>
+		<button onclick="all()">show all</button>
+	</p>
 
-	<div class="left inline">
+	<div class="left inline" id="parametrs">
 		<!--Форма ввода правила воспроизведения анимации-->
 		<form onchange="change();" class="inline">
 			<p>Animation timing function</p>
@@ -70,7 +89,7 @@
 		</form>
 	</div>
 	<!--Анимируемый объект-->
-	<div class="rel inline">
+	<div class="rel inline" id="animation">
 		<div class="anim" id="anim"></div>
 	</div>
 

@@ -31,7 +31,6 @@
 
 <body>
 	<header>
-		<svg></svg>
 		<nav>
 			<ul>
 				<li><a href="#">Популярное</a></li>
@@ -40,13 +39,17 @@
 				<li><a href="#">О сайте</a></li>
 			</ul>
 		</nav>
+		<div><svg></svg></div>
 	</header>
 
 	<main>
 		<h2 id="animName">Название</h2>
 		<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
-		<pre><code class="language-css" id="styleCode">
-</code></pre>
+		<div id="pre">
+			<pre><code class="language-css" id="styleCode">
+			</code></pre>
+		</div>
+		
 	</main>
 
 	<footer>
