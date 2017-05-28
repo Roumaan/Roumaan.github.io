@@ -9,29 +9,10 @@
 	<link href="../Styles/style.css" rel="stylesheet" />
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
-
-
-	<style>
-		header {
-			background-color: bisque;
-		}
-		
-		pre {
-			font-size: 0.9em;
-			height: 50vh;
-		}
-		
-		iframe {
-			width: 96vw;
-			height: 50vh;
-		}
-
-	</style>
 </head>
 
 <body>
 	<header>
-		<svg></svg>
 		<nav>
 			<ul>
 				<li><a href="#">Популярное</a></li>
@@ -40,16 +21,23 @@
 				<li><a href="#">О сайте</a></li>
 			</ul>
 		</nav>
+		<div><svg></svg></div>
 	</header>
 
 	<main>
 		<h2 id="animName">Название</h2>
-		<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
-		<pre><code class="language-css" id="styleCode">
-</code></pre>
+		<div id="iframe">
+			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
+		</div>
+		<div id="pre">
+			<pre><code class="language-css" id="styleCode">
+			</code></pre>
+		</div>
+		
 	</main>
 
 	<footer>
+
 		<p>
 			<span id="author">Автор</span>
 			<span style="float:right;">
@@ -58,7 +46,9 @@
 			<span id="rate">Рейтинг</span>
 			</span>
 		</p>
+    
 	</footer>
+
 
 	<?
 		$dblocation = "localhost"; // Имя сервера
