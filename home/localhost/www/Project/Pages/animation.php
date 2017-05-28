@@ -33,7 +33,7 @@
 			<pre><code class="language-css" id="styleCode">
 			</code></pre>
 		</div>
-		
+
 	</main>
 
 	<footer>
@@ -46,7 +46,7 @@
 			<span id="rate">Рейтинг</span>
 			</span>
 		</p>
-    
+
 	</footer>
 
 
