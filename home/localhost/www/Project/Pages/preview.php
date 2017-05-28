@@ -1,8 +1,11 @@
 <html>
 
 <head>
+<<<<<<< HEAD
+=======
 	<!--Анимации-->
-	<link rel="stylesheet" href="../Styles/style.css">
+
+>>>>>>> 4e7da15901b965557909520fe32690089f78a3e7
 	<?
 		$dblocation = "localhost"; // Имя сервера
 		$dbuser = "root";          // Имя пользователя
@@ -19,28 +22,21 @@
 		echo "<link rel=\"stylesheet\" href=\"$animAddres\">"
 	?>
 
+
 		<!--Скрипт preview-->
 		<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
-		<script type="text/javascript">
-			function parametrs() {
-				document.getElementById("parametrs").style.display = "inline-block";
-				document.getElementById("animation").style.display = "none";
-			}
-
-			function animation() {
-				document.getElementById("animation").style.display = "inline-block";
-				document.getElementById("parametrs").style.display = "none";
-			}
-
-			function all228() {
-				document.getElementById("animation").style.display = "inline-block";
-				document.getElementById("parametrs").style.display = "inline-block";
-			}
-
-		</script>
 
 
+		<link rel="stylesheet" href="../Styles/style.css">
 		<style>
+			#buttons {
+				height: 20px;
+				background-color: #a2d3b0;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				padding: 5px;
+				margin-bottom: 10px;
+			}
 			/*Стили для ввода*/
 			
 			.left {
@@ -51,7 +47,6 @@
 				padding-right: 50px;
 				display: inline-block;
 				vertical-align: top;
-				margin: 10px;
 			}
 			
 			.mult {
@@ -79,18 +74,11 @@
 			}
 
 		</style>
-
 </head>
 
 <body>
 
-	<div id="buttons">
-		<button onclick="parametrs()">parametrs</button>
-		<button onclick="animation()">animation</button>
-		<button onclick="all228()">show all</button>
-	</div>
-
-	<div class="left inline" id="parametrs">
+	<div class="left inline">
 		<!--Форма ввода правила воспроизведения анимации-->
 		<form onchange="change();" class="inline">
 			<p>Animation timing function</p>
@@ -110,7 +98,7 @@
 		</form>
 	</div>
 	<!--Анимируемый объект-->
-	<div class="rel inline" id="animation">
+	<div class="rel inline">
 		<div class="anim" id="anim"></div>
 	</div>
 
@@ -121,6 +109,7 @@
 		change();
 
 	</script>
+
 
 	<?
 	$animCount = $_GET['animCount'];
