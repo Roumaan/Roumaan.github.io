@@ -2,7 +2,7 @@
 
 <head>
 	<!--Анимации-->
-	<link rel="stylesheet" href="../Styles/style.css">
+
 	<?
 		$dblocation = "localhost"; // Имя сервера
 		$dbuser = "root";          // Имя пользователя
@@ -40,7 +40,16 @@
 		</script>
 
 
+		<link rel="stylesheet" href="../Styles/style.css">
 		<style>
+			#buttons {
+				height: 20px;
+				background-color: #a2d3b0;
+				border-top-left-radius: 6px;
+				border-top-right-radius: 6px;
+				padding: 5px;
+				margin-bottom: 10px;
+			}
 			/*Стили для ввода*/
 			
 			.left {
