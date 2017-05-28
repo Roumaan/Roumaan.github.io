@@ -15,7 +15,7 @@
 			document.getElementById("animation").style.display = "inline-block";
 			document.getElementById("parametrs").style.display = "none";
 		}
-		function all(){
+		function all228(){
 			document.getElementById("animation").style.display = "inline-block";
 			document.getElementById("parametrs").style.display = "inline-block";
 		}
@@ -66,7 +66,7 @@
 	<p>
 		<button onclick="parametrs()">parametrs</button>
 		<button onclick="animation()">animation</button>
-		<button onclick="all()">show all</button>
+		<button onclick="all228()">show all</button>
 	</p>
 
 	<div class="left inline" id="parametrs">

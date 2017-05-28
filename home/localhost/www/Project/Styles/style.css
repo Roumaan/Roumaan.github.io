@@ -49,18 +49,17 @@ html {
 
 body {
 	font-family: Verdana, sans-serif;
-	margin: 0;
 	font-size: 15px;
+	margin:0;
 }
 
 header {
 	height: 100px;
-	background: linear-gradient(20deg, #a2d3b0 3%, #e5ebcc 59%, #f6f1d3 85%);
+	background: linear-gradient(10deg, #a2d3b0 3%, #e5ebcc 70%, #f6f1d3 85%);
 }
 
 svg {
 	height: 30px;
-	border: 1px solid red;
 }
 
 li,
@@ -68,7 +67,6 @@ li a {
 	display: inline-block;
 	height: 30px;
 	margin-right: 30px;
-	border: 1px solid red;
 	color: black;
 	text-decoration: none;
 }
@@ -78,7 +76,8 @@ ul {
 }
 
 main {
-	background-color: #FFF;
+	background-image:linear-gradient(to bottom,#EDEDED 60%,#A2D3B0);
+	background-color: #EDEDED;
 	padding:5px;
 }
 
@@ -89,36 +88,49 @@ main {
 #iframe {
 	box-sizing: border-box;
 	width: 96%;
-	border-radius:5px;
+	border-radius:8px;
 	margin:auto;
 	border: 1px solid #CED3D5;
-}
-
-iframe{
-	width:100%;
-	border:none;
-	background-color: #FFF;
-}
-
-#pre {
-	padding:0;
-	width: 96%;
-	height:300px;
-	margin: auto;
-}
-
-pre,
-code{
-	font-size:0,9em;
-	box-sizing: border-box;
-	height:300px;
 }
 
 #preview {
 	height: 450px;
 }
 
+iframe{
+	box-sizing:border-box;
+	width:100%;
+	border:none;
+	background-color: #FFF;
+	padding:10px;
+}
+
+#pre {
+	width: 96%;
+	height:300px;
+	margin: auto;
+}
+
+#fullypre {
+	float:right;
+}
+pre,
+code{
+	font-size:0,9em;
+	box-sizing: border-box;
+	height:100%;
+}
+
 footer{
 	background-color:#293F50;
 	height:100px;
+	padding:10px;
+}
+
+.footer{
+	display:inline-block;
+}
+
+#rating{
+	float:right;
 }

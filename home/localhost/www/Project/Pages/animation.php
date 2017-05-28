@@ -9,7 +9,6 @@
 	<link href="../Styles/style.css" rel="stylesheet" />
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
-
 	<?
 		$dblocation = "localhost"; // Имя сервера
 		$dbuser = "root";          // Имя пользователя
@@ -69,16 +68,19 @@
 		<div id="iframe">
 			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
 		</div>
-		<div id="pre">
-			<pre><code class="language-css" id="styleCode">
-			</code></pre>
+		<div id="pre" class="prism">
+			<pre class="prism">
+				<code class="language-css" id="styleCode">
+				</code>
+			</pre>
 		</div>
 		
 	</main>
 
 	<footer>
-		<div><span>Автор</span></div>
-		<div><span>Рейтинг</span></div>
+		<div class="footer"><span>Автор</span></div>
+		<div class="footer" id="rating"><span>Рейтинг</span></div>
+		<br><br>
 		<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
 		<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
 	</footer>
