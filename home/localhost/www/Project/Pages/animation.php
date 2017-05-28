@@ -9,6 +9,56 @@
 	<link href="../Styles/style.css" rel="stylesheet" />
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
+
+	<style>
+		header {
+			background-color: bisque;
+		}
+		
+		pre {
+			font-size: 0.9em;
+			height: 50vh;
+		}
+		
+		iframe {
+			width: 96vw;
+			height: 50vh;
+		}
+
+	</style>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#">Популярное</a></li>
+				<li><a href="#">Лучшее</a></li>
+				<li><a href="#">Новое</a></li>
+				<li><a href="#">О сайте</a></li>
+			</ul>
+		</nav>
+		<div><svg></svg></div>
+	</header>
+
+	<main>
+		<h2 id="animName">Название</h2>
+		<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
+		<div id="pre">
+			<pre><code class="language-css" id="styleCode">
+			</code></pre>
+		</div>
+		
+	</main>
+
+	<footer>
+		<p>Автор</p>
+		<p style="float:right">Рейтинг</p>
+		<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
+		<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
+	</footer>
+
+
 	<?
 		$dblocation = "localhost"; // Имя сервера
 		$dbuser = "root";          // Имя пользователя
