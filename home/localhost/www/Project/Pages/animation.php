@@ -9,23 +9,6 @@
 	<link href="../Styles/style.css" rel="stylesheet" />
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
-
-	<style>
-		header {
-			background-color: bisque;
-		}
-		
-		pre {
-			font-size: 0.9em;
-			height: 50vh;
-		}
-		
-		iframe {
-			width: 96vw;
-			height: 50vh;
-		}
-
-	</style>
 </head>
 
 <body>
@@ -43,7 +26,9 @@
 
 	<main>
 		<h2 id="animName">Название</h2>
-		<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
+		<div id="iframe">
+			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
+		</div>
 		<div id="pre">
 			<pre><code class="language-css" id="styleCode">
 			</code></pre>
@@ -52,8 +37,8 @@
 	</main>
 
 	<footer>
-		<p>Автор</p>
-		<p style="float:right">Рейтинг</p>
+		<div><span>Автор:</span><span id="rating">Рейтинг:</span></div>
+		<br><br>
 		<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
 		<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
 	</footer>
@@ -98,42 +83,6 @@
 			document.getElementById("styleCode").innerHTML = styleCode;
 
 		</script>
-</head>
-
-<body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Популярное</a></li>
-				<li><a href="#">Лучшее</a></li>
-				<li><a href="#">Новое</a></li>
-				<li><a href="#">О сайте</a></li>
-			</ul>
-		</nav>
-		<div><svg></svg></div>
-	</header>
-
-	<main>
-		<h2 id="animName">Название</h2>
-		<div id="iframe">
-			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
-		</div>
-		<div id="pre" class="prism">
-			<pre class="prism">
-				<code class="language-css" id="styleCode">
-				</code>
-			</pre>
-		</div>
-		
-	</main>
-
-	<footer>
-		<div class="footer"><span>Автор</span></div>
-		<div class="footer" id="rating"><span>Рейтинг</span></div>
-		<br><br>
-		<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
-		<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
-	</footer>
 </body>
 
 </html>

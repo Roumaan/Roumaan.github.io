@@ -33,6 +33,7 @@
 			padding-right: 50px;
 			display: inline-block;
 			vertical-align: top;
+			margin:10px;
 		}
 		
 		.mult {
@@ -63,11 +64,12 @@
 </head>
 
 <body>
-	<p>
+	
+	<div id="buttons">
 		<button onclick="parametrs()">parametrs</button>
 		<button onclick="animation()">animation</button>
 		<button onclick="all228()">show all</button>
-	</p>
+	</div>
 
 	<div class="left inline" id="parametrs">
 		<!--Форма ввода правила воспроизведения анимации-->
@@ -100,7 +102,6 @@
 		change();
 
 	</script>
-
 
 	<?
 	$animCount = $_GET['animCount'];
