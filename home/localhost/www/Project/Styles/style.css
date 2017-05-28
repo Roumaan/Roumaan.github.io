@@ -35,65 +35,8 @@ main {
 	padding: 5px;
 }
 
-#animName {
-	text-align: center;
-}
-
-#iframe {
-	box-sizing: border-box;
-	width: 96%;
-	border-radius: 6px;
-	margin: auto;
-	border: 1px solid #CED3D5;
-}
-
-#preview {
-	height: 600px;
-	overflow: scroll;
-}
-
-iframe {
-	box-sizing: border-box;
-	width: 100%;
-	margin: auto;
-	border: none;
-	background-color: #FFF;
-	border-radius: 6px;
-}
-
-#buttons {
-	height: 20px;
-	background-color: #a2d3b0;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	padding: 5px;
-	margin-bottom: 10px;
-}
-
-#pre {
-	box-sizing: border-box;
-	width: 96%;
-	height: 400px;
-	margin: auto;
-}
-
-pre,
-code {
-	font-size: 0, 9em;
-	box-sizing: border-box;
-	height: 100%;
-}
-
 footer {
 	background-color: #A2D3B0;
-	height: 100px;
+	height: 45px;
 	padding: 10px;
-}
-
-.footer {
-	display: inline-block;
-}
-
-#rating {
-	float: right;
 }

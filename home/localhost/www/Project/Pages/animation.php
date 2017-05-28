@@ -7,6 +7,7 @@
 	<meta charset="UTF-8">
 	<title>Название</title>
 	<link href="../Styles/style.css" rel="stylesheet" />
+	<link href="../Styles/animPage.css" rel="stylesheet" />
 	<link href="../Styles/prism.css" rel="stylesheet" />
 	<script src="../Scripts/JS/prism.js"></script>
 </head>
@@ -26,7 +27,7 @@
 
 	<main>
 		<h2 id="animName">Название</h2>
-		<div id="iframe">
+		<div id="previewContainer">
 			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
 		</div>
 		<div id="pre">
