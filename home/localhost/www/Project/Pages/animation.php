@@ -37,10 +37,16 @@
 	</main>
 
 	<footer>
-		<div><span>Автор:</span><span id="rating">Рейтинг:</span></div>
-		<br><br>
-		<label><input type="image" src="../favicon.ico" alt="Плюс">плюс</label>
-		<label><input type="image" src="../favicon.ico" alt="минус">минус</label>
+
+		<p>
+			<span id="author">Автор</span>
+			<span style="float:right;">
+			<input type="image" src="../favicon.ico" alt="Плюс">
+			<input type="image" src="../favicon.ico" alt="Минус">
+			<span id="rate">Рейтинг</span>
+			</span>
+		</p>
+    
 	</footer>
 
 
@@ -56,9 +62,10 @@
 		$result = mysql_query($query) or die('not:' .mysql_error());
 		$values = mysql_fetch_array($result);
 	
-		$animCount = $values['animationsCount'];
+		$rate = $values['rate'];
 		$name = $values['name'];
-		
+		$author = $values['author'];
+		$animCount = $values['animationsCount'];
 		$styleFile = file($values['styleFile']);
 	
 		for ($i = 0; $i < count($styleFile); $i++) {
@@ -69,17 +76,22 @@
 		}
 		
 		echo "<script>
-		var animCount = $animCount; var name = \"$name\";\n var styleCode = \"$styleCode\";
+			var ID=\"$ID\";
+			var rate = \"$rate\";
+			var name = \"$name\";
+			var author = \"$author\"
+			var animCount = $animCount; 
+			var styleCode = \"$styleCode\"; 	
 		</script>";
 	?>
 
 		<script>
-			document.getElementById("preview").src = "preview.php?animCount=" + animCount;
+			document.getElementById("preview").src = "preview.php?animCount=" + animCount + "&ID=" + ID;
 			document.getElementById("animName").innerText = name;
+			document.getElementById("author").innerText = author;
+			document.getElementById("rate").innerText = rate;
 
 			styleCode = styleCode.replace(new RegExp("<br>", 'g'), "\n");
-			alert();
-
 			document.getElementById("styleCode").innerHTML = styleCode;
 
 		</script>

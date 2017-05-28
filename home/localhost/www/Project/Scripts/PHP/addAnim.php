@@ -57,14 +57,14 @@
 	}
 
 	
-	function writeToDB ($name, $author, $styleAddres) {
+	function writeToDB ($name, $author, $styleAddres, $styleAddresDB) {
 		
 		$animLines = findAnims($styleAddres);
 		renameAnims($styleAddres, $animLines);		
 				
 		$animationsCount = count($animLines);
 		$rate = rand(0, 2500);
-		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`) VALUES ('$name', '$styleAddres', '$author', $rate , $animationsCount );";
+		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount );";
 		mysql_query($write) or die('not: ' .mysql_error());
 		$query = 'SELECT * FROM `animations`';
 		$result = mysql_query($query) or die('not: ' 	.mysql_error());
@@ -98,7 +98,7 @@
 	$uploadfile = $uploaddir;
 
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-		writeToDB ($_POST['name'], $_POST['author'], $uploadfile);
+		writeToDB ($_POST['name'], $_POST['author'], $uploadfile, "..\\\\animations\\\\anim$fileID.css");
     	echo "Файл корректен и был успешно загружен.\n";
 	} else {
     	echo "Возможная атака с помощью файловой загрузки!\n";
