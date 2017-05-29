@@ -89,6 +89,7 @@
 		<script>
 			document.getElementById("preview").src = "preview.php?animCount=" + animCount + "&ID=" + ID;
 			document.getElementById("animName").innerText = name;
+			document.title = name;
 			document.getElementById("author").innerText = author;
 			document.getElementById("rate").innerText = rate;
 
