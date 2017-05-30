@@ -29,6 +29,7 @@
 				<th align="right">Рейтинг: </th>
 				<th align="right">Выложено:</th>
 			</tr>
+			<span>
 			<?
 				$dblocation = "localhost"; // Имя сервера
 				$dbuser = "root";          // Имя пользователя
@@ -68,27 +69,6 @@
 					$animCount = $animation['animationsCount'];
 					$ID = $animation['ID'];
 					
-					$time = getdate();
-					$animTime = strtotime($animation['time']);
-					
-					$day = $time['mday']-date("d",$animTime);
-					$mounth = $time['mon']-date("m",$animTime);
-					$year = $time['year']-date("Y",$animTime);
-					
-					$hour = $time['hours']-date("H",$animTime)-1;
-					$minute = $time['minutes']-date("i",$animTime);
-					
-					if ($year == 0) $year = null;
-					else $year = $year." лет";
-					if ($mounth == 0) $mounth = null;
-					else $mounth = $mounth." месяца";
-					if ($day == 0) $day = null;
-					else $day = $day." дней";
-					if ($hour == 0) $hour = null;
-					else $hour = $hour." часа";
-					if ($minute == 0) $minute = null;
-					else $minute = $minute." минут";
-					
 					echo"<tr class=\"animation\">
 							<td class=\"name\">
 								<a href=\"animation.php?ID=$ID\">
@@ -110,24 +90,97 @@
 								<span style=\"float:right\" >$rate</span> 
 								</a>
 							</td>
-							<td class=\"rate\">
+							<td class=\"time\">
 								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:right\" >$year $mounth $day $hour $minute</span> 
+									<span style=\"float:right\">
+							";
+					
+					$time = new DateTime(date("d-m-Y G:i",time()-3600));
+					$animTime = new DateTime($animation['time']);
+					
+					$diff = $animTime->diff($time);
+						
+					$day = $diff->format('%d');
+					$month = $diff->format('%m');
+					$year = $diff->format('%Y');
+					
+					$minute = $diff->format('%i');
+					$hour = $diff->format('%h');
+					
+					if ($year != 0) {
+						if ($year==1 ||
+							($year>20 && $year%10==1)) 
+							$year = $year." год";
+						else if (($year>1 && $year<5) ||
+							($year>20 && ($year%10>1 && $year%10<5))) 
+							$year = $year." года";
+						else if (($year>=5 && $year<=20) ||
+							($year>20 && $year%10>=5 && $year%10<=9)) 
+							$year = $year." лет";
+						
+						echo "$year назад";
+					}
+					else if ($mounth != 0){
+						if ($mounth==1) 
+							$mounth = $mounth." месяц";
+						else if ($mounth>1 && $mounth<5) 
+							$mounth = $mounth." месяца";
+						else if ($mounth>=5 && $mounth<=20)
+							$mounth = $minute." месяцев";
+						
+						echo "$mounth назад";
+					}
+					else if ($day != 0) {
+						if ($day==1 ||
+							($day>20 && $day%10==1)) 
+							$day = $day." день";
+						else if (($day>1 && $day<5) ||
+							($day>20 && ($day%10>1 && $day%10<5))) 
+							$day = $day." дня";
+						else if (($day>=5 && $day<=20) ||
+							($day>20 && $day%10>=5 && $day%10<=9)) 
+							$day = $minute." дней";
+						
+						echo "$day назад";
+					}	  						  
+					else if ($hour != 0) {
+						if ($hour==1 ||
+							($hour>20 && $hour%10==1)) 
+							$hour = $hour." час";
+						else if (($hour>1 && $hour<5) ||
+							($hour>20 && ($hour%10>1 && $hour%10<5))) 
+							$hour = $hour." часа";
+						else if ($hour>=5 && $hour<=20) 
+							$hour = $hour." часов";
+						
+						echo "$hour назад";
+					}
+					else if ($minute != 0){
+						if ($minute==1 ||
+							($minute>20 && $minute%10==1)) 
+							$minute = $minute." минуту";
+						else if (($minute>1 && $minute<5) ||
+							($minute>20 && ($minute%10>1 && $minute%10<5))) 
+							$minute = $minute." минуты";
+						else if (($minute>=5 && $minute<=20) ||
+							($minute>20 && $minute%10>=5 && $minute%10<=9)) 
+							$minute = $minute." минут";
+							
+						echo "$minute назад";
+					} else {
+						echo "Только что";
+					}
+							
+					echo "</span> 
 								</a>
 							</td>
 						</a>
-					</tr>
-					 ";
-					/*
-						";*/
+					</tr>";
 				}
 			?>
+			</span>
 		</table>
 	</main>
-
-	<footer>
-
-	</footer>
 </body>
 
 </html>
