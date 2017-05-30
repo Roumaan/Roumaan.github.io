@@ -16,8 +16,7 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="#">Популярное</a></li>
-				<li><a href="#">Лучшее</a></li>
+				<li><a href="best.php">Лучшее</a></li>
 				<li><a href="#">Новое</a></li>
 				<li><a href="#">О сайте</a></li>
 			</ul>

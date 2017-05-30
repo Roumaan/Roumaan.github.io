@@ -12,8 +12,7 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="#">Популярное</a></li>
-				<li><a href="#">Лучшее</a></li>
+				<li><a href="best.php">Лучшее</a></li>
 				<li><a href="#">Новое</a></li>
 				<li><a href="#">О сайте</a></li>
 			</ul>
@@ -22,7 +21,14 @@
 	</header>
 
 	<main>
-		<ul>
+		<table>
+			<tr>
+				<th align="left">Название:</th>
+				<th align="left">Колл-во анимаций:</th>
+				<th align="right">Автор:</th>
+				<th align="right">Рейтинг: </th>
+				<th align="right">Выложено:</th>
+			</tr>
 			<?
 				$dblocation = "localhost"; // Имя сервера
 				$dbuser = "root";          // Имя пользователя
@@ -62,16 +68,66 @@
 					$animCount = $animation['animationsCount'];
 					$ID = $animation['ID'];
 					
-					echo "<li class=\"animation\">
-					<a href=\"animation.php?ID=$ID\">
-						<p>$name Колл-во анимаций: $animCount <span style=\"float:right\"><span class=\"author\">$author</span> <span class=\"rate\">Рейтинг: $rate</span> </span>
-						</p>
-					</a>
-				</li>";
+					$time = getdate();
+					$animTime = strtotime($animation['time']);
+					
+					$day = $time['mday']-date("d",$animTime);
+					$mounth = $time['mon']-date("m",$animTime);
+					$year = $time['year']-date("Y",$animTime);
+					
+					$hour = $time['hours']-date("H",$animTime)-1;
+					$minute = $time['minutes']-date("i",$animTime);
+					
+					if ($year == 0) $year = null;
+					else $year = $year." лет";
+					if ($mounth == 0) $mounth = null;
+					else $mounth = $mounth." месяца";
+					if ($day == 0) $day = null;
+					else $day = $day." дней";
+					if ($hour == 0) $hour = null;
+					else $hour = $hour." часа";
+					if ($minute == 0) $minute = null;
+					else $minute = $minute." минут";
+					
+					echo"<tr class=\"animation\">
+							<td class=\"name\">
+								<a href=\"animation.php?ID=$ID\">
+								$name
+								</a>
+							</td>
+							<td>
+								<span align=\"left\">
+									 <a href=\"animation.php?ID=$ID\">$animCount
+									 </a>
+								</span>
+							</td>
+							<td class=\"author\">
+								<a href=\"animation.php?ID=$ID\"><span style=\"float:right\" >$author</span>	
+								</a>
+							</td>
+							<td class=\"rate\">
+								<a href=\"animation.php?ID=$ID\">
+								<span style=\"float:right\" >$rate</span> 
+								</a>
+							</td>
+							<td class=\"rate\">
+								<a href=\"animation.php?ID=$ID\">
+									<span style=\"float:right\" >$year $mounth $day $hour $minute</span> 
+								</a>
+							</td>
+						</a>
+					</tr>
+					 ";
+					/*
+						";*/
 				}
 			?>
-		</ul>
+		</table>
 	</main>
+
+	<footer>
+
+	</footer>
 </body>
 
 </html>
