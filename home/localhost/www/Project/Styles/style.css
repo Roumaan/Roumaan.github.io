@@ -33,6 +33,8 @@ nav ul {
 
 main {
 	padding: 5px;
+	max-width: 1300px;
+	margin:auto;
 }
 
 footer {
