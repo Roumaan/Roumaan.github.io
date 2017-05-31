@@ -13,13 +13,29 @@ a {
 }
 
 .name {
-	width: 20vw;
+	width: 1px;
+	white-space: nowrap;
+	overflow: visible;
+	padding-right: 15px;
 }
 
 .author {
-	width: 10vw;
+	width: 1px;
+	white-space: nowrap;
+	overflow: visible;
+	padding-left: 15px;
 }
 
 .rate {
-	width: 15vw
+	width: 1px;
+	white-space: nowrap;
+	overflow: visible;
+	padding-right: 15px;
+}
+
+.time {
+	width: 1px;
+	white-space: nowrap;
+	overflow: visible;
+	padding-left: 15px;
 }

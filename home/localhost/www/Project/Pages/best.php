@@ -23,11 +23,11 @@
 	<main>
 		<table>
 			<tr>
-				<th align="left">Название:</th>
-				<th align="left">Колл-во анимаций:</th>
-				<th align="right">Автор:</th>
-				<th align="right">Рейтинг: </th>
-				<th align="right">Выложено:</th>
+				<th align="left" class="name">Название:</th>
+				<th align="left" class="rate">Рейтинг:</th>
+				<th align="left" class="animCount">Колл-во анимаций:</th>
+				<th align="right" class="author">Автор:</th>
+				<th align="right" class="time">Выложено:</th>
 			</tr>
 			<span>
 			<?
@@ -69,30 +69,33 @@
 					$animCount = $animation['animationsCount'];
 					$ID = $animation['ID'];
 					
-					echo"<tr class=\"animation\">
+					echo "<tr class=\"animation\">
 							<td class=\"name\">
 								<a href=\"animation.php?ID=$ID\">
-								$name
-								</a>
-							</td>
-							<td>
-								<span align=\"left\">
-									 <a href=\"animation.php?ID=$ID\">$animCount
-									 </a>
-								</span>
-							</td>
-							<td class=\"author\">
-								<a href=\"animation.php?ID=$ID\"><span style=\"float:right\" >$author</span>	
+									$name
 								</a>
 							</td>
 							<td class=\"rate\">
 								<a href=\"animation.php?ID=$ID\">
-								<span style=\"float:right\" >$rate</span> 
+									<span style=\"float:left\">$rate</span>
 								</a>
 							</td>
-							<td class=\"time\">
+							<td class=\"animCount\">
+							 	<a href=\"animation.php?ID=$ID\">
+									<span align=\"left\">
+										$animCount						 
+									</span>
+								</a>
+							</td>
+							<td class=\"author\">
 								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:right\">
+									<span style=\"float:right\" >$author</span>	
+								</a>
+							</td>
+
+			<td class=\"time\">
+				<a href=\"animation.php?ID=$ID\">
+					<span style=\"float:right\">
 							";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
@@ -171,13 +174,11 @@
 						echo "Только что";
 					}
 							
-					echo "</span> 
-								</a>
-							</td>
-						</a>
-					</tr>";
-				}
-			?>
+					echo "</span>
+				</a>
+			</td>
+			</a>
+			</tr>"; } ?>
 			</span>
 		</table>
 	</main>
