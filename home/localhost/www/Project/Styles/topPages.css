@@ -12,30 +12,24 @@ a {
 	border-top: 1px solid;
 }
 
-.name {
+td {
 	width: 1px;
 	white-space: nowrap;
 	overflow: visible;
+}
+
+.name {
 	padding-right: 15px;
 }
 
 .author {
-	width: 1px;
-	white-space: nowrap;
-	overflow: visible;
 	padding-left: 15px;
 }
 
 .rate {
-	width: 1px;
-	white-space: nowrap;
-	overflow: visible;
 	padding-right: 15px;
 }
 
 .time {
-	width: 1px;
-	white-space: nowrap;
-	overflow: visible;
 	padding-left: 15px;
 }

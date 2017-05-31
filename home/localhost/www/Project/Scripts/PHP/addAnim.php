@@ -64,7 +64,8 @@
 				
 		$animationsCount = count($animLines);
 		$rate = rand(0, 2500);
-		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount );";
+		$time = date("Y-m-d H:i",time()-3600);
+		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
 		mysql_query($write) or die('not: ' .mysql_error());
 		$query = 'SELECT * FROM `animations`';
 		$result = mysql_query($query) or die('not: ' 	.mysql_error());

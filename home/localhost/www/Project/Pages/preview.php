@@ -86,6 +86,9 @@
 				border-radius: 50%;
 			}
 
+			body {
+				background-color: white;
+			}
 		</style>
 
 </head>
