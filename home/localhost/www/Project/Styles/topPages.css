@@ -7,7 +7,7 @@ table {
 }
 
 th{
-	background-color: #EEEEEE;
+	background-color: #E7E7E7;
 	font-weight: normal;
 	padding:10px;
 	height:40px;
@@ -15,7 +15,7 @@ th{
 
 
 .animation:nth-child(odd){
-	background-color: #E7E7E7;
+	background-color: #F0F0F0;
 }
 
 a {
@@ -33,6 +33,7 @@ td {
 	white-space: nowrap;
 	overflow: visible;
 	padding:10px;
+	cursor:pointer;
 }
 
 .name {
