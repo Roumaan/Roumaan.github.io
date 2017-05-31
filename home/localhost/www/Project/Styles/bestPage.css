@@ -1,0 +1,25 @@
+table {
+	width: 99vw;
+	border-collapse: collapse;
+}
+
+a {
+	text-decoration: none;
+}
+
+.animation {
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+}
+
+.name {
+	width: 20vw;
+}
+
+.author {
+	width: 10vw;
+}
+
+.rate {
+	width: 15vw
+}
