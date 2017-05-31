@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../Styles/style.css">
 	<link rel="stylesheet" href="../Styles/topPages.css">
-	<title>Лучшее</title>
+	<title>Новое</title>
 </head>
 
 <body>
@@ -39,30 +39,43 @@
 			
 				$query = "SELECT *  FROM `animations`";
 				$result = mysql_query($query) or die('not:' .mysql_error());		
-				$rates = array();
+				$times = array();
 				
 				$i = 0;
 				while($row = mysql_fetch_array($result))
 				{
-					$rates[$i] = $row['rate'];
+					$times[$i] = $row['time'];
 					$i+=1;
 				}
 			
-				$temp;
-				for ($i = 0; $i < count($rates); $i++) {
-					for ($k = 0; $k < count($rates) - 1; $k++) {
-						if ($rates[$k] < $rates[$k + 1]) {
-							$temp = $rates[$k + 1];
-							$rates[$k + 1] = $rates[$k];
-							$rates[$k] = $temp;
+				$time = new DateTime(date("d-m-Y G:i",time()-3600));
+				for ($i = 0; $i < count($times); $i++) {
+					for ($k = 0; $k < count($times) - 1; $k++) {
+						$animTime1 = new DateTime($times[$k]);
+						$animTime2 = new DateTime($times[$k + 1]);
+						echo $i."<br>";
+						$diff1 = $animTime1->diff($animTime2);
+						
+						$i = $diff1->format('%i') > 0;
+						$h = $diff1->format('%h') > 0;	
+						$d = $diff1->format('%d') > 0;	
+						$m = $diff1->format('%m') > 0;	
+						$h = $diff1->format('%h') > 0;	
+						$y = $diff1->format('%Y') > 0;	
+						
+						echo $i;
+						if (!$i || !$h || !$d) {						
+							$temp = $times[$k + 1];
+							$times[$k + 1] = $times[$k];
+							$times[$k] = $temp;
 						}
 					}
 				}
 
-				for ($i = 0; $i < count($rates); $i++) {
-					$rate = $rates[$i];
+				for ($i = 0; $i < count($times); $i++) {
+					$time = $times[$i];
 					$res = mysql_query("SELECT *  FROM `animations`
-					WHERE `rate`= $rate") or die('not:' .mysql_error());
+					WHERE `time`= '$time'") or die('not:' .mysql_error());
 					$animation = mysql_fetch_array($res);
 					$name = $animation['name'];
 					$author = $animation['author'];
