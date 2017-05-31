@@ -43,7 +43,7 @@
 		<style>
 			#buttons {
 				height: 20px;
-				background-color: #a2d3b0;
+				background-color:#6992A6;
 				border-top-left-radius: 6px;
 				border-top-right-radius: 6px;
 				padding: 5px;
