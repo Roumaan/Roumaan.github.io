@@ -10,7 +10,7 @@ body {
 
 header {
 	height: 45px;
-	background: linear-gradient(10deg, #a2d3b0 3%, #e5ebcc 70%, #f6f1d3 85%);
+	background: linear-gradient(10deg, #7A9CC2 3%, #D8D9C6 70%, #f6f1d3 95%);
 }
 
 svg {
@@ -36,7 +36,7 @@ main {
 }
 
 footer {
-	background-color: #A2D3B0;
+	background-color: #3C5E84;
 	height: 45px;
 	padding: 10px;
 }
