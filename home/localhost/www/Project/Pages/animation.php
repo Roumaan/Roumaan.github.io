@@ -27,7 +27,7 @@
 	<main>
 		<h2 id="animName">Название</h2>
 		<div id="previewContainer">
-			<iframe src="../Pages/preview.php" scrolling="yes" id="preview"></iframe>
+			<iframe src="../Pages/preview.php" id="preview"></iframe>
 		</div>
 		<div id="pre">
 			<pre><code class="language-css" id="styleCode">
@@ -50,7 +50,7 @@
 	</footer>
 
 
-	<?
+	<?php
 		$dblocation = "localhost"; // Имя сервера
 		$dbuser = "root";          // Имя пользователя
 		$dbpasswd = "";            // Пароль

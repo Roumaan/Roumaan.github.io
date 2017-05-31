@@ -24,14 +24,13 @@
 	<main>
 		<table>
 			<tr>
-				<th align="left" class="site">Место:</th>
-				<th align="left" class="name">Название:</th>
-				<th align="left" class="rate">Рейтинг:</th>
-				<th align="left" class="animCount">Колл-во анимаций:</th>
-				<th align="right" class="author">Автор:</th>
-				<th align="right" class="time">Выложено:</th>
+				<th class="site">Место:</th>
+				<th class="name">Название:</th>
+				<th class="rate">Рейтинг:</th>
+				<th class="animCount">Колл-во анимаций:</th>
+				<th class="author">Автор:</th>
+				<th class="time">Выложено:</th>
 			</tr>
-			<span>
 			<?
 				$dblocation = "localhost"; // Имя сервера
 				$dbuser = "root";          // Имя пользователя
@@ -75,18 +74,11 @@
 					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
 							<td class=\"site\">$I</td>
 							<td class=\"name\">$name</td>
-							<td class=\"rate\">
-								<span style=\"float:left\">$rate</span>
-							</td>
-							<td class=\"animCount\">
-								<span align=\"left\">$animCount</span>
-							</td>
-							<td class=\"author\">
-								<span style=\"float:right\">$author</span>	
-							</td>
-
+							<td class=\"rate\">$rate</td>
+							<td class=\"animCount\">$animCount</td>
+							<td class=\"author\">$author</td>
 							<td class=\"time\">
-								<span style=\"float:right\">";
+								";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
 					$animTime = new DateTime($animation['time']);
@@ -164,10 +156,9 @@
 						echo "Только что";
 					}
 							
-					echo "</span>
+					echo "
 				</td>
 			</tr>"; } ?>
-			</span>
 		</table>
 	</main>
 </body>
