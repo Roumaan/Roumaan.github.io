@@ -23,6 +23,7 @@
 	<main>
 		<table>
 			<tr>
+				<th align="left" class="site">Место:</th>
 				<th align="left" class="name">Название:</th>
 				<th align="left" class="rate">Рейтинг:</th>
 				<th align="left" class="animCount">Колл-во анимаций:</th>
@@ -70,6 +71,11 @@
 					$ID = $animation['ID'];
 					
 					echo "<tr class=\"animation\">
+							<td class=\"site\">
+								<a href=\"animation.php?ID=$ID\">
+									$i
+								</a>
+							</td>
 							<td class=\"name\">
 								<a href=\"animation.php?ID=$ID\">
 									$name
