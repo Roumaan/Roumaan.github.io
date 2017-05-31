@@ -4,7 +4,6 @@ html {
 
 body {
 	font-family: Verdana, sans-serif;
-	background-color: #EDEDED;
 	font-size: 15px;
 	margin: 0;
 }
@@ -33,8 +32,9 @@ nav ul {
 
 main {
 	padding: 5px;
-	max-width: 1300px;
+	max-width: 1360px;
 	margin:auto;
+	border:1px solid black;
 }
 
 footer {

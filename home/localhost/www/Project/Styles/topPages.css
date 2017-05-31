@@ -1,6 +1,21 @@
 table {
-	width: 99vw;
+	width: 100%;
 	border-collapse: collapse;
+	border:1px solid #B3B2B2;
+	max-width: 1000px;
+	margin: auto;
+}
+
+th{
+	background-color: #EEEEEE;
+	font-weight: normal;
+	padding:10px;
+	height:40px;
+}
+
+
+.animation:nth-child(odd){
+	background-color: #E7E7E7;
 }
 
 a {
@@ -8,14 +23,16 @@ a {
 }
 
 .animation {
-	border-bottom: 1px solid;
-	border-top: 1px solid;
+	height:40px;
+	border-bottom: 1px solid #B3B2B2;
+	border-top: 1px solid #B3B2B2;
 }
 
 td {
 	width: 1px;
 	white-space: nowrap;
 	overflow: visible;
+	padding:10px;
 }
 
 .name {

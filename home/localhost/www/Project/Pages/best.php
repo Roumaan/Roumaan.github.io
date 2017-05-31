@@ -73,27 +73,20 @@
 					
 					$I = $i+1;
 					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
-							<td class=\"site\">
-									$I
-							</td>
-							<td class=\"name\">								
-								$name								
-							</td>
+							<td class=\"site\">$I</td>
+							<td class=\"name\">$name</td>
 							<td class=\"rate\">
 								<span style=\"float:left\">$rate</span>
 							</td>
 							<td class=\"animCount\">
-								<span align=\"left\">
-										$animCount						 
-								</span>
+								<span align=\"left\">$animCount</span>
 							</td>
 							<td class=\"author\">
 								<span style=\"float:right\">$author</span>	
 							</td>
 
 							<td class=\"time\">
-								<span style=\"float:right\">
-							";
+								<span style=\"float:right\">";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
 					$animTime = new DateTime($animation['time']);

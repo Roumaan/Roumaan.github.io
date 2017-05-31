@@ -87,7 +87,7 @@
 			}
 
 			body {
-				background-color: white;
+				background-color: #F8F7F7;
 			}
 		</style>
 
