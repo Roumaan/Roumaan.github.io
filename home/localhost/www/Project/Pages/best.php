@@ -42,7 +42,7 @@
 				$rates = array();
 				
 				$i = 0;
-				while($row = mysql_fetch_array($result))
+				while(($row = mysql_fetch_array($result)) && i <= 30)
 				{
 					$rates[$i] = $row['rate'];
 					$i+=1;
