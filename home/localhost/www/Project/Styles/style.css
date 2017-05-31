@@ -4,6 +4,7 @@ html {
 
 body {
 	font-family: Verdana, sans-serif;
+	background-color: #EDEDED;
 	font-size: 15px;
 	margin: 0;
 }
@@ -31,7 +32,6 @@ nav ul {
 }
 
 main {
-	background-color: #EDEDED;
 	padding: 5px;
 }
 
