@@ -15,7 +15,7 @@
 			<ul>
 				<li><a href="best.php">Лучшее</a></li>
 				<li><a href="new.php">Новое</a></li>
-				<li><a href="#">О сайте</a></li>
+				<li><a href="about.html">О сайте</a></li>
 			</ul>
 		</nav>
 		<div><svg></svg></div>
