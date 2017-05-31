@@ -52,6 +52,10 @@
 			}
 			/*Стили для ввода*/
 			
+			#parametrs{
+				display:none;
+			}
+			
 			.left {
 				width: auto;
 			}
@@ -89,6 +93,7 @@
 
 			body {
 				background-color: #F8F7F7;
+				height:100vh;
 			}
 		</style>
 
