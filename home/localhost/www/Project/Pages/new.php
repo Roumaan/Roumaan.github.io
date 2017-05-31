@@ -51,20 +51,15 @@
 				$time = new DateTime(date("d-m-Y G:i",time()-3600));
 				for ($i = 0; $i < count($times); $i++) {
 					for ($k = 0; $k < count($times) - 1; $k++) {
+						
 						$animTime1 = new DateTime($times[$k]);
 						$animTime2 = new DateTime($times[$k + 1]);
-						echo $i."<br>";
+						
 						$diff1 = $animTime1->diff($animTime2);
-						
-						$i = $diff1->format('%i') > 0;
-						$h = $diff1->format('%h') > 0;	
-						$d = $diff1->format('%d') > 0;	
-						$m = $diff1->format('%m') > 0;	
-						$h = $diff1->format('%h') > 0;	
-						$y = $diff1->format('%Y') > 0;	
-						
-						echo $i;
-						if (!$i || !$h || !$d) {						
+
+						$r = $diff1->format('%R');	
+						if (strcmp($r,"+")==0) {	
+							
 							$temp = $times[$k + 1];
 							$times[$k + 1] = $times[$k];
 							$times[$k] = $temp;
@@ -179,7 +174,7 @@
 							($minute>20 && ($minute%10>1 && $minute%10<5))) 
 							$minute = $minute." минуты";
 						else if (($minute>=5 && $minute<=20) ||
-							($minute>20 && $minute%10>=5 && $minute%10<=9)) 
+							($minute>20 && ($minute%10>=5 && $minute%10<=9) || $minute%10 == 0)) 
 							$minute = $minute." минут";
 							
 						echo "$minute назад";
