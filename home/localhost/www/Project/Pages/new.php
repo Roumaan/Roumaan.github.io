@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../Styles/style.css">
 	<link rel="stylesheet" href="../Styles/topPages.css">
+	<script src="../Scripts/JS/animLink.js"></script>
 	<title>Новое</title>
 </head>
 
@@ -13,7 +14,7 @@
 		<nav>
 			<ul>
 				<li><a href="best.php">Лучшее</a></li>
-				<li><a href="#">Новое</a></li>
+				<li><a href="new.php">Новое</a></li>
 				<li><a href="#">О сайте</a></li>
 			</ul>
 		</nav>
@@ -75,35 +76,26 @@
 					$name = $animation['name'];
 					$author = $animation['author'];
 					$animCount = $animation['animationsCount'];
+					$rate = $animation['rate'];
 					$ID = $animation['ID'];
 					
-					echo "<tr class=\"animation\">
+					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
 							<td class=\"name\">
-								<a href=\"animation.php?ID=$ID\">
-									$name
-								</a>
+								$name
 							</td>
 							<td class=\"rate\">
-								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:left\">$rate</span>
-								</a>
+								<span style=\"float:left\">$rate</span>
 							</td>
 							<td class=\"animCount\">
-							 	<a href=\"animation.php?ID=$ID\">
-									<span align=\"left\">
-										$animCount						 
-									</span>
-								</a>
+							 	<span align=\"left\">
+									$animCount						 
+								</span>
 							</td>
 							<td class=\"author\">
-								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:right\" >$author</span>	
-								</a>
+								<span style=\"float:right\" >$author</span>
 							</td>
-
-			<td class=\"time\">
-				<a href=\"animation.php?ID=$ID\">
-					<span style=\"float:right\">
+							<td class=\"time\">
+								<span style=\"float:right\">
 							";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
@@ -182,10 +174,8 @@
 						echo "Только что";
 					}
 							
-					echo "</span>
-				</a>
-			</td>
-			</a>
+					echo "</span>			
+				</td>		
 			</tr>"; } ?>
 			</span>
 		</table>
