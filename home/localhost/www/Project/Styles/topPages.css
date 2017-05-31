@@ -37,16 +37,20 @@ td {
 
 .name {
 	padding-right: 5px;
+	text-align: left;
 }
 
 .author {
 	padding-left: 5px;
+	text-align: right;
 }
 
 .rate {
 	padding-right: 5px;
+	text-align: left;
 }
 
 .time {
-	padding-left: 5px;
+	padding-left: 5px;	
+	text-align: right;
 }
