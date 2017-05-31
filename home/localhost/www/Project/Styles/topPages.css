@@ -15,7 +15,7 @@ th{
 
 
 .animation:nth-child(odd){
-	background-color: #EEEEEE;
+	background-color: #F0F0F0;
 }
 
 a {
@@ -33,6 +33,7 @@ td {
 	white-space: nowrap;
 	overflow: visible;
 	padding:10px;
+	cursor:pointer;
 }
 
 .name {
