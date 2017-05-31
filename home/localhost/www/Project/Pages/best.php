@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../Styles/style.css">
 	<link rel="stylesheet" href="../Styles/topPages.css">
+	<script src="../Scripts/JS/animLink.js"></script>
 	<title>Лучшее</title>
 </head>
 
@@ -70,38 +71,28 @@
 					$animCount = $animation['animationsCount'];
 					$ID = $animation['ID'];
 					
-					echo "<tr class=\"animation\">
+					$I = $i+1;
+					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
 							<td class=\"site\">
-								<a href=\"animation.php?ID=$ID\">
-									$i
-								</a>
+									$I
 							</td>
-							<td class=\"name\">
-								<a href=\"animation.php?ID=$ID\">
-									$name
-								</a>
+							<td class=\"name\">								
+								$name								
 							</td>
 							<td class=\"rate\">
-								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:left\">$rate</span>
-								</a>
+								<span style=\"float:left\">$rate</span>
 							</td>
 							<td class=\"animCount\">
-							 	<a href=\"animation.php?ID=$ID\">
-									<span align=\"left\">
+								<span align=\"left\">
 										$animCount						 
-									</span>
-								</a>
+								</span>
 							</td>
 							<td class=\"author\">
-								<a href=\"animation.php?ID=$ID\">
-									<span style=\"float:right\" >$author</span>	
-								</a>
+								<span style=\"float:right\">$author</span>	
 							</td>
 
-			<td class=\"time\">
-				<a href=\"animation.php?ID=$ID\">
-					<span style=\"float:right\">
+							<td class=\"time\">
+								<span style=\"float:right\">
 							";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
@@ -181,9 +172,7 @@
 					}
 							
 					echo "</span>
-				</a>
-			</td>
-			</a>
+				</td>
 			</tr>"; } ?>
 			</span>
 		</table>
