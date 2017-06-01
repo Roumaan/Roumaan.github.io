@@ -24,11 +24,11 @@
 	<main>
 		<table>
 			<tr>
-				<th class="name">Название:</th>
-				<th class="rate">Рейтинг:</th>
-				<th class="animCount">Колл-во анимаций:</th>
-				<th class="author">Автор:</th>
-				<th class="time">Выложено:</th>
+				<th class="left">Название:</th>
+				<th class="left">Рейтинг:</th>
+				<th class="left">Колл-во анимаций:</th>
+				<th class="right">Автор:</th>
+				<th class="right">Выложено:</th>
 			</tr>
 			<span>
 			<?
@@ -43,13 +43,12 @@
 				$times = array();
 				
 				$i = 0;
-				while($row = mysql_fetch_array($result))
+				while(($row = mysql_fetch_array($result)) && i <= 30)
 				{
 					$times[$i] = $row['time'];
-					$i+=1;
+					$i++;
 				}
-			
-				$time = new DateTime(date("d-m-Y G:i",time()-3600));
+				
 				for ($i = 0; $i < count($times); $i++) {
 					for ($k = 0; $k < count($times) - 1; $k++) {
 						
@@ -59,8 +58,7 @@
 						$diff1 = $animTime1->diff($animTime2);
 
 						$r = $diff1->format('%R');	
-						if (strcmp($r,"+")==0) {	
-							
+						if (strcmp($r,"+")==0) {						
 							$temp = $times[$k + 1];
 							$times[$k + 1] = $times[$k];
 							$times[$k] = $temp;
@@ -79,12 +77,12 @@
 					$rate = $animation['rate'];
 					$ID = $animation['ID'];
 					
-					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
-							<td class=\"name\">$name</td>
-							<td class=\"rate\">$rate</td>
-							<td class=\"animCount\">$animCount</td>
-							<td class=\"author\">$author</td>
-							<td class=\"time\">
+					echo "<tr class=\"animation\" onclick=\"goToAnim('animation.php?ID=', $ID);\">
+							<td class=\"left\">$name</td>
+							<td class=\"left\">$rate</td>
+							<td class=\"left\">$animCount</td>
+							<td class=\"right\">$author</td>
+							<td class=\"right\">
 							";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));

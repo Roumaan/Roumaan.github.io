@@ -1,5 +1,5 @@
 table {
-	width: 100%;
+	width: 90%;
 	border-collapse: collapse;
 	max-width: 1000px;
 	margin: auto;
@@ -35,22 +35,10 @@ td {
 	cursor:pointer;
 }
 
-.name {
-	padding-right: 5px;
+.left {
 	text-align: left;
 }
 
-.author {
-	padding-left: 5px;
-	text-align: right;
-}
-
-.rate {
-	padding-right: 5px;
-	text-align: left;
-}
-
-.time {
-	padding-left: 5px;	
+.right {
 	text-align: right;
 }

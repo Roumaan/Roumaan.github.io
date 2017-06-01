@@ -3,9 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../Styles/style.css">
-	<link rel="stylesheet" href="../Styles/topPages.css">
-	<script src="../Scripts/JS/animLink.js"></script>
+	<link rel="stylesheet" href="Styles/style.css">
+	<link rel="stylesheet" href="Styles/topPages.css">
+	<script src="Scripts/JS/animLink.js"></script>
 	<title>Лучшее</title>
 </head>
 
@@ -13,9 +13,9 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="best.php">Лучшее</a></li>
-				<li><a href="new.php">Новое</a></li>
-				<li><a href="about.html">О сайте</a></li>
+				<li><a href="index.php">Лучшее</a></li>
+				<li><a href="Pages/new.php">Новое</a></li>
+				<li><a href="Pages/about.html">О сайте</a></li>
 			</ul>
 		</nav>
 		<div><svg></svg></div>
@@ -24,12 +24,12 @@
 	<main>
 		<table>
 			<tr>
-				<th class="site">Место:</th>
-				<th class="name">Название:</th>
-				<th class="rate">Рейтинг:</th>
-				<th class="animCount">Колл-во анимаций:</th>
-				<th class="author">Автор:</th>
-				<th class="time">Выложено:</th>
+				<th class="left">Место:</th>
+				<th class="left">Название:</th>
+				<th class="left">Рейтинг:</th>
+				<th class="left">Колл-во анимаций:</th>
+				<th class="right">Автор:</th>
+				<th class="right">Выложено:</th>
 			</tr>
 			<?
 				$dblocation = "localhost"; // Имя сервера
@@ -44,7 +44,7 @@
 				
 				$i = 0;
 				while(($row = mysql_fetch_array($result)) && i <= 30)
-				{
+ {
 					$rates[$i] = $row['rate'];
 					$i+=1;
 				}
@@ -71,14 +71,13 @@
 					$ID = $animation['ID'];
 					
 					$I = $i+1;
-					echo "<tr class=\"animation\" onclick=\"goToAnim($ID);\">
-							<td class=\"site\">$I</td>
-							<td class=\"name\">$name</td>
-							<td class=\"rate\">$rate</td>
-							<td class=\"animCount\">$animCount</td>
-							<td class=\"author\">$author</td>
-							<td class=\"time\">
-								";
+					echo "
+					<tr class=\"animation\" onclick=\"goToAnim('Pages/animation.php?ID=', $ID);\"><td class=\"left\">$I</td>
+							<td class=\"left\">$name</td>
+							<td class=\"left\">$rate</td>
+							<td class=\"left\">$animCount</td>
+							<td class=\"right\">$author</td>
+							<td class=\"right\">";
 					
 					$time = new DateTime(date("d-m-Y G:i",time()-3600));
 					$animTime = new DateTime($animation['time']);
@@ -156,9 +155,9 @@
 						echo "Только что";
 					}
 							
-					echo "
-				</td>
-			</tr>"; } ?>
+					echo "</td>
+					</tr>
+			"; } ?>
 		</table>
 	</main>
 </body>

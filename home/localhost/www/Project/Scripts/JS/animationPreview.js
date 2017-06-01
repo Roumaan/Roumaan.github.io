@@ -9,7 +9,7 @@ function getRadioVal(name,initVal) {
 	}
 	return radioVal;
 }
-//Коммент
+
 function change() {
 	var anim = document.getElementById("anim"); 
 

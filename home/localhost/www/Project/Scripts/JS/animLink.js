@@ -1,3 +1,3 @@
-function goToAnim (ID) {
-	document.location.href = "animation.php?ID=" + ID;
+function goToAnim (fp, ID) {
+	document.location.href = fp + ID;
 }

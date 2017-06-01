@@ -20,9 +20,8 @@
 	}
 
 	function renameAnims($styleAddres, $animLines) {
-		global $animLines, $animPoses;
 		$styleLines = file($styleAddres);
-		
+		echo $styleLines[0];
 		for ($i = 0; $i < count($animLines); $i++) {
 			$deleteFrom = stripos($styleLines[$animLines[$i]],"keyframes")+9;
 			$deleteTo = 999; 
@@ -55,7 +54,7 @@
 				
 		$animationsCount = count($animLines);
 		$rate = rand(0, 2500);
-		$time = date("Y-m-d H:i",time()-3600);
+		$time = date("Y-m-d H:i:s",time()-3600);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
 		mysql_query($write) or die('not: ' .mysql_error());
 		$query = 'SELECT * FROM `animations`';
@@ -85,8 +84,7 @@
 	$auto=mysql_query("SHOW TABLE STATUS LIKE 'animations'");
 	$auto=mysql_fetch_assoc($auto);
 	$fileID = $auto['Auto_increment'];
-	echo $fileID;
-	$uploaddir = "Z:\\\\home\\\\localhost\\\\www\\\\Project\\\\animations\\\\anim$fileID.css";
+	$uploaddir = "Z:\\home\\localhost\\www\\Project\\animations\\anim$fileID.css";
 	$uploadfile = $uploaddir;
 
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {

@@ -2,7 +2,6 @@
 <html>
 
 <head>
-	<!--Анимации-->
 	<link rel="stylesheet" href="../Styles/style.css">
 	<?
 		$dblocation = "localhost"; // Имя сервера
@@ -20,7 +19,6 @@
 		echo "<link rel=\"stylesheet\" href=\"$animAddres\">"
 	?>
 
-		<!--Скрипт preview-->
 		<script type="text/javascript" src="../Scripts/JS/animationPreview.js"></script>
 		<script type="text/javascript">
 			function parametrs() {
@@ -33,7 +31,7 @@
 				document.getElementById("parametrs").style.display = "none";
 			}
 
-			function all228() {
+			function showAll() {
 				document.getElementById("animation").style.display = "inline-block";
 				document.getElementById("parametrs").style.display = "inline-block";
 			}
@@ -50,7 +48,6 @@
 				padding: 5px;
 				margin-bottom: 10px;
 			}
-			/*Стили для ввода*/
 			
 			#parametrs{
 				display:none;
@@ -75,7 +72,6 @@
 			p {
 				width: auto;
 			}
-			/*Стили для анимации*/
 			
 			.rel {
 				position: relative;
@@ -104,13 +100,12 @@
 	<div id="buttons">
 		<button onclick="parametrs()">parametrs</button>
 		<button onclick="animation()">animation</button>
-		<button onclick="all228()">show all</button>
+		<button onclick="showAll()">show all</button>
 	</div>
 
 	<div class="left inline" id="parametrs">
-		<!--Форма ввода правила воспроизведения анимации-->
 		<form onchange="change();" class="inline">
-			<p>Animation timing function</p>
+			<p>Временная функция анимации</p>
 			<p><input name="animTimeFunc" type="radio" value="linear" checked> linear</p>
 			<p><input name="animTimeFunc" type="radio" value="ease"> ease</p>
 			<p><input name="animTimeFunc" type="radio" value="ease-in"> ease-in</p>
@@ -119,14 +114,12 @@
 		</form>
 
 		<form onchange="change();" class="inline" id="nameForm">
-			<p>Animation name</p>
+			<p>Выбор анимации</p>
 		</form>
-		<!--Форма ввода времени воспроизведения анимации-->
 		<form oninput="change();">
-			<p><input type="number" id="time" class="mult" step="0.1" value="1" min="0" max="2"> Animation duration multiepler</p>
+			<p><input type="number" id="time" class="mult" step="0.1" value="1" min="0" max="2"> Время воиспроизведения</p>
 		</form>
 	</div>
-	<!--Анимируемый объект-->
 	<div class="rel inline" id="animation">
 		<div class="anim" id="anim"></div>
 	</div>
@@ -134,9 +127,8 @@
 
 
 	<script>
-		//Обновить анимацию при загрузке
 		change();
-
+		showAll();
 	</script>
 
 	<?
