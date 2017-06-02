@@ -31,7 +31,7 @@
 				<th class="right">Автор:</th>
 				<th class="right">Выложено:</th>
 			</tr>
-			<?
+			<?php
 				$dblocation = "localhost"; // Имя сервера
 				$dbuser = "root";          // Имя пользователя
 				$dbpasswd = "";            // Пароль
@@ -44,7 +44,7 @@
 				
 				$i = 0;
 				while(($row = mysql_fetch_array($result)) && i <= 30)
- {
+ 				{
 					$rates[$i] = $row['rate'];
 					$i+=1;
 				}

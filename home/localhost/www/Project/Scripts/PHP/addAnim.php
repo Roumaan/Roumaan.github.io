@@ -71,16 +71,9 @@
 		echo "</table>";
 	}
 
+	require_once 'connection.php';
+	mysql_select_db('projectbd') or die('bd');
 
-	function conectToDB () {
-		$dblocation = "localhost"; 
-		$dbuser = "root";          
-		$dbpasswd = "";            
-		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
-		mysql_select_db('projectbd') or die('bd');
-	}
-
-	conectToDB();
 	$auto=mysql_query("SHOW TABLE STATUS LIKE 'animations'");
 	$auto=mysql_fetch_assoc($auto);
 	$fileID = $auto['Auto_increment'];

@@ -31,11 +31,8 @@
 				<th class="right">Выложено:</th>
 			</tr>
 			<span>
-			<?
-				$dblocation = "localhost"; // Имя сервера
-				$dbuser = "root";          // Имя пользователя
-				$dbpasswd = "";            // Пароль
-				$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+			<?php
+				require '../Scripts/PHP/connection.php';
 				mysql_select_db('projectbd') or die('bd');
 			
 				$query = "SELECT *  FROM `animations`";

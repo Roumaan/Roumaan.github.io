@@ -51,13 +51,10 @@
 
 
 	<?php
-		$dblocation = "localhost"; // Имя сервера
-		$dbuser = "root";          // Имя пользователя
-		$dbpasswd = "";            // Пароль
-		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
-		$ID = $_GET['ID'];
-
+		require_once '../Scripts/PHP/connection.php';
 		mysql_select_db('projectbd') or die('bd');
+	
+		$ID = $_GET['ID'];
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
 		$result = mysql_query($query) or die('not:' .mysql_error());
 		$values = mysql_fetch_array($result);
@@ -86,7 +83,7 @@
 	?>
 
 		<script>
-			document.getElementById("preview").src = "preview.php?animCount=" + animCount + "&ID=" + ID;
+			document.getElementById("preview").src = "preview.php?ID=" + ID;
 			document.getElementById("animName").innerText = name;
 			document.title = name;
 			document.getElementById("author").innerText = author;
