@@ -51,7 +51,8 @@
 
 
 	<?php
-		require_once '../Scripts/PHP/connection.php';
+		require_once dirname(__FILE__).'/../Scripts/PHP/connection.php';
+		if (!$dbcnx) die('<p style="color:red">'.mysqli_connect_errno().' - '.mysqli_connect_error().'</p>');
 	
 		$ID = $_GET['ID'];
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
@@ -62,13 +63,14 @@
 		$name = $values['name'];
 		$author = $values['author'];
 		$animCount = $values['animationsCount'];
-		$styleFile = file($values['styleFile']);
-	
+		$styleFile = file(dirname(__FILE__).'/'.$values['styleFile']);
+		
+		$styleCode = "";
 		for ($i = 0; $i < count($styleFile); $i++) {
 			$PCREpattern  =  '/\r\n|\r|\n/u';
 			$styleFile[$i] = preg_replace($PCREpattern, '', $styleFile[$i]);
- 
-			$styleCode = $styleCode.$styleFile[$i]."<br>";
+ 			$string = $styleFile[$i];
+			$styleCode = $styleCode.$string."<br>";
 		}
 		
 		echo "<script>

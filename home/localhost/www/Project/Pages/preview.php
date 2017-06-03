@@ -4,7 +4,8 @@
 <head>
 	<link rel="stylesheet" href="../Styles/style.css">
 	<?php
-		require_once '../Scripts/PHP/connection.php';
+		require_once dirname(__FILE__).'/../Scripts/PHP/connection.php';
+		if (!$dbcnx) die('<p style="color:red">'.mysqli_connect_errno().' - '.mysqli_connect_error().'</p>');
 	
 		$ID = $_GET['ID'];
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
