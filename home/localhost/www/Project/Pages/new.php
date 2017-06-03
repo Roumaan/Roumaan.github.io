@@ -22,6 +22,8 @@
 	</header>
 
 	<main>
+		<h1 align="center">Новейшие анимации</h1>
+		
 		<table>
 			<tr>
 				<th class="left">Название:</th>

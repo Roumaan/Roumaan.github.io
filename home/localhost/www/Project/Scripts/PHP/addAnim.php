@@ -4,8 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../../Styles/style.css">
-	<link rel="stylesheet" href="../../Styles/topPages.css">
-	<script src="../Scripts/JS/animLink.js"></script>
 	
 	<style>
 		img {
@@ -29,9 +27,9 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="../index.php">Лучшее</a></li>
-				<li><a href="new.php">Новое</a></li>
-				<li><a href="about.html">О сайте</a></li>
+				<li><a href="../../index.php">Лучшее</a></li>
+				<li><a href="../../Pages/new.php">Новое</a></li>
+				<li><a href="../../Pages/about.html">О сайте</a></li>
 			</ul>
 		</nav>
 		<div><svg></svg></div>
@@ -97,7 +95,7 @@
 		$time = date("Y-m-d H:i:s",time()-3600);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
 		mysqli_query($dbcnx, $write) 
-			or die('not: ' ."<img src=\"..\\..\\Images\\error.jpg\">
+			or die('not: ' ."<img src=\"..\..\Images\error.jpg\">
 			<p>Не удалось отправить данные в базу данных!<p>");
 		$query = 'SELECT * FROM `animations`';
 		$result = mysqli_query($dbcnx, $query) or die('not: ' 	.mysqli_error($dbcnx));
@@ -111,15 +109,15 @@
 	$auto=mysqli_query($dbcnx, "SHOW TABLE STATUS LIKE 'animations'");
 	$auto=mysqli_fetch_assoc($auto);
 	$fileID = $auto['Auto_increment'];
-	$uploaddir = dirname(__FILE__)."\\..\\..\\Animations\\anim$fileID.css";
+	$uploaddir = dirname(__FILE__)."/../../Animations/anim$fileID.css";
 	$uploadfile = $uploaddir;
 
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 		writeToDB ($dbcnx,$_POST['name'], $_POST['author'], $uploadfile, "../Animations/anim$fileID.css"); 	
-		echo "<img src=\"..\\..\\Images\\ok.jpg\">
+		echo "<img src=\"../../Images/ok.jpg\">
 			<p>Отправка произведена успешно!<p>";
 	} else {
-		echo "<img src=\"..\\..\\Images\\error.jpg\">
+		echo "<img src=\"../../images/error.jpg\">
 			<p>Не удалось получить файл!<p>";
 	}
 ?>
