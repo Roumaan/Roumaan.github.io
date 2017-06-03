@@ -6,6 +6,22 @@
 	<link rel="stylesheet" href="../../Styles/style.css">
 	<link rel="stylesheet" href="../../Styles/topPages.css">
 	<script src="../Scripts/JS/animLink.js"></script>
+	
+	<style>
+		img {
+			margin-left: calc(50% - 100px);
+			width: 200px;
+		}
+		p {
+			text-align: center;
+			font-size: 1.5em;
+		}
+		
+		main {
+			
+		}
+	</style>
+	
 	<title>Новое</title>
 </head>
 
@@ -20,8 +36,8 @@
 		</nav>
 		<div><svg></svg></div>
 	</header>
-
-
+	
+	<main>
 <?php
 
 
@@ -80,19 +96,13 @@
 		$rate = rand(0, 2500);
 		$time = date("Y-m-d H:i:s",time()-3600);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
-		mysqli_query($dbcnx, $write) or die('not: ' .mysql_error($dbcnx));
+		mysqli_query($dbcnx, $write) 
+			or die('not: ' ."<img src=\"..\\..\\Images\\error.jpg\">
+			<p>Не удалось отправить данные в базу данных!<p>");
 		$query = 'SELECT * FROM `animations`';
 		$result = mysqli_query($dbcnx, $query) or die('not: ' 	.mysqli_error($dbcnx));
 		
-		echo "<table border=\"1px\">";
-		while ($line = mysqli_fetch_array($result, MYSQL_ASSOC)) {
-    		echo "\t<tr>";
-    		foreach ($line as $col_value) {
-        		echo "\t\t<td>$col_value</td>";
-    		}
-    		echo "\t</tr>";
-		}
-		echo "</table>";
+
 	}
 
 	require_once 'connection.php';
@@ -105,11 +115,14 @@
 	$uploadfile = $uploaddir;
 
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
-		echo "<p>Файл корректен и был успешно загружен.<p>";
 		writeToDB ($dbcnx,$_POST['name'], $_POST['author'], $uploadfile, "../Animations/anim$fileID.css"); 	
+		echo "<img src=\"..\\..\\Images\\ok.jpg\">
+			<p>Отправка произведена успешно!<p>";
 	} else {
-    	echo "Возможная атака с помощью файловой загрузки!\n";
+		echo "<img src=\"..\\..\\Images\\error.jpg\">
+			<p>Не удалось получить файл!<p>";
 	}
 ?>
+		</main>
 	</body>
 </html>

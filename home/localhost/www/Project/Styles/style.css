@@ -33,11 +33,15 @@ nav ul {
 
 main {
 	max-width: 1360px;
-	margin:auto;	
+	margin: auto;
 }
 
 footer {
 	background-color: #3C5E84;
 	height: 45px;
 	padding: 10px;
+}
+
+p {
+	padding: 0px 35px;
 }
