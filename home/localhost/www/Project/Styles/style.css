@@ -35,7 +35,7 @@ main {
 	max-width: 1360px;
 	margin: auto;
 }
-
+ 
 footer {
 	background-color: #3C5E84;
 	height: 45px;
@@ -43,5 +43,10 @@ footer {
 }
 
 p {
-	padding: 0px 35px;
+	padding: 0px 35px; 
+}
+
+.add {
+	width: 30px;
+	padding: 7.5px; 
 }
