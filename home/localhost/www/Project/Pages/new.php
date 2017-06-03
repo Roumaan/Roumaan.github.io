@@ -11,6 +11,7 @@
 
 <body>
 	<header>
+		
 		<nav>
 			<ul>
 				<li><a href="../index.php">Лучшее</a></li>
@@ -18,7 +19,7 @@
 				<li><a href="about.html">О сайте</a></li>
 			</ul>
 		</nav>
-		<div><svg></svg></div>
+		<a href="addAnim.html"><img src="../Images/plus.png" class="add"></a>
 	</header>
 
 	<main>
