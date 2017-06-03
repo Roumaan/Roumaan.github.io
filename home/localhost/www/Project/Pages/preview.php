@@ -40,6 +40,9 @@
 
 
 		<style>
+			html{
+				border-radius: 6px;
+			}
 			#buttons {
 				height: 20px;
 				background-color:#6992A6;

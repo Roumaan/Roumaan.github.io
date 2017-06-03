@@ -1,3 +1,7 @@
+body{
+	border-radius: 6px;
+}
+
 #animName {
 	text-align: center;
 }
