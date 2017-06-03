@@ -5,15 +5,34 @@
 	<meta charset="UTF-8">
 	<title>Регистрация анимаций</title>
 	<style>
-		
+		body{
+			background-color: #A4B4C3;
+		}
 		div{
 			margin:auto;
 			text-align: center;
 		}
 		fieldset{
 			display:inline-block;
+			border-radius: 5px;
+			height:300px;
+			width:300px;
 		}
 		
+		label{
+			margin:auto;
+		}
+		
+		input{
+			top:3px;
+			height:1.3em;
+		}
+		
+		input:focus{
+			position:relative;
+			top:0.1em;
+			height:1.5em;
+		}
 	</style>
 </head>
 
@@ -22,8 +41,8 @@
 		<form action="../Scripts/PHP/addAnim.php" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Регистрация анимаций</legend>
-				<label><p>Название<br><input type="text" name="name"></p></label>
-				<label><p>Автор<br><input type="text" name="author"></p></label>
+				<p><label>Название<br><input type="text" name="name" maxlength="20"></label></p>
+				<p><label>Автор<br><input type="text" name="author" maxlength="16"></label></p>
 				<p><input type="file" name="file" accept="text/css"></p>
 				<p><input type="submit"></p>
 			</fieldset>
