@@ -3,17 +3,17 @@
 
 <head>
 	<meta charset="UTF-8">
+	<link href="../Styles/style.css" rel="stylesheet" />
 	<title>Регистрация анимаций</title>
 	<style>
-		body{
-			background-color: #A4B4C3;
-		}
 		div{
-			margin:auto;
+			margin:0 calc(50% - 150px);
 			text-align: center;
 		}
 		fieldset{
 			display:inline-block;
+			background-color: aliceblue;
+			padding: 5px;
 			border-radius: 5px;
 			height:300px;
 			width:300px;
@@ -25,25 +25,36 @@
 		
 		input{
 			top:3px;
-			height:1.3em;
+			height:1.5em;
 		}
 		
 		input:focus{
 			position:relative;
 			top:0.1em;
-			height:1.5em;
+			height:1.6em;
 		}
 	</style>
 </head>
 
 <body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="../index.php">Лучшее</a></li>
+				<li><a href="new.php">Новое</a></li>
+				<li><a href="about.html">О сайте</a></li>
+			</ul>
+		</nav>
+		<a href="addAnim.html"><img src="../Images/plus.png" class="add"></a>
+	</header>
+	
 	<div>
-		<form action="../Scripts/PHP/addAnim.php" method="post" enctype="multipart/form-data">
+		<form submit="../Scripts/PHP/addAnim.php" method="post" enctype="multipart/form-data">
 			<fieldset>
 				<legend>Регистрация анимаций</legend>
-				<p><label>Название<br><input type="text" name="name" maxlength="20"></label></p>
-				<p><label>Автор<br><input type="text" name="author" maxlength="16"></label></p>
-				<p><input type="file" name="file" accept="text/css"></p>
+				<p><label>Название<br><input type="text" name="name" maxlength="20" required></label></p>
+				<p><label>Автор<br><input type="text" name="author" maxlength="16" required></label></p>
+				<p><input type="file" name="file" accept="text/css" required></p>
 				<p><input type="submit"></p>
 			</fieldset>
 		</form>

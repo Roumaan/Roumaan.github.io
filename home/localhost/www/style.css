@@ -19,6 +19,7 @@ body {
 main {
 	padding-top: 12vw;
 	transition: .3s;
+	margin:0 calc(50% - 150px);
 }
 
 article {
