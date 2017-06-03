@@ -52,12 +52,11 @@
 
 	<?php
 		require_once '../Scripts/PHP/connection.php';
-		mysql_select_db('projectbd') or die('bd');
 	
 		$ID = $_GET['ID'];
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
-		$result = mysql_query($query) or die('not:' .mysql_error());
-		$values = mysql_fetch_array($result);
+		$result = mysqli_query($dbcnx, $query) or die('not:' .mysqli_error($dbcnx));
+		$values = mysqli_fetch_array($result);
 	
 		$rate = $values['rate'];
 		$name = $values['name'];

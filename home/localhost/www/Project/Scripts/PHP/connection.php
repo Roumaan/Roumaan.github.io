@@ -2,5 +2,5 @@
 	$dblocation = "localhost"; 
 	$dbuser = "root";          
 	$dbpasswd = "";            
-	$dbcnx = mysql_connect($dblocation,$dbuser,$dbpasswd);
+	$dbcnx = mysqli_connect($dblocation,$dbuser,$dbpasswd, 'projectbd');
 ?>

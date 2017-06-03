@@ -33,14 +33,13 @@
 			<span>
 			<?php
 				require '../Scripts/PHP/connection.php';
-				mysql_select_db('projectbd') or die('bd');
 			
 				$query = "SELECT *  FROM `animations`";
-				$result = mysql_query($query) or die('not:' .mysql_error());		
+				$result = mysqli_query($dbcnx, $query) or die('not:' .mysqli_error($dbcnx));		
 				$times = array();
 				
 				$i = 0;
-				while(($row = mysql_fetch_array($result)) && i <= 30)
+				while(($row = mysqli_fetch_array($result)) && i <= 30)
 				{
 					$times[$i] = $row['time'];
 					$i++;
@@ -65,9 +64,9 @@
 
 				for ($i = 0; $i < count($times); $i++) {
 					$time = $times[$i];
-					$res = mysql_query("SELECT *  FROM `animations`
-					WHERE `time`= '$time'") or die('not:' .mysql_error());
-					$animation = mysql_fetch_array($res);
+					$res = mysqli_query($dbcnx, "SELECT *  FROM `animations`
+					WHERE `time`= '$time'") or die('not:' .mysqli_error($dbcnx));
+					$animation = mysqli_fetch_array($res);
 					$name = $animation['name'];
 					$author = $animation['author'];
 					$animCount = $animation['animationsCount'];

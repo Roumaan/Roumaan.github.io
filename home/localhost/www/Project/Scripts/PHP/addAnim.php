@@ -56,12 +56,12 @@
 		$rate = rand(0, 2500);
 		$time = date("Y-m-d H:i:s",time()-3600);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
-		mysql_query($write) or die('not: ' .mysql_error());
+		mysqli_query($dbcnx, $write) or die('not: ' .mysql_error($dbcnx));
 		$query = 'SELECT * FROM `animations`';
-		$result = mysql_query($query) or die('not: ' 	.mysql_error());
+		$result = mysqli_query($dbcnx, $query) or die('not: ' 	.mysqli_error($dbcnx));
 		
 		echo "<table border=\"1px\">";
-		while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		while ($line = mysqli_fetch_array($result, MYSQL_ASSOC)) {
     		echo "\t<tr>";
     		foreach ($line as $col_value) {
         		echo "\t\t<td>$col_value</td>";
@@ -72,10 +72,9 @@
 	}
 
 	require_once 'connection.php';
-	mysql_select_db('projectbd') or die('bd');
 
-	$auto=mysql_query("SHOW TABLE STATUS LIKE 'animations'");
-	$auto=mysql_fetch_assoc($auto);
+	$auto=mysqli_query($dbcnx, "SHOW TABLE STATUS LIKE 'animations'");
+	$auto=mysqli_fetch_assoc($auto);
 	$fileID = $auto['Auto_increment'];
 	$uploaddir = "Z:\\home\\localhost\\www\\Project\\animations\\anim$fileID.css";
 	$uploadfile = $uploaddir;

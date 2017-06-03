@@ -32,18 +32,14 @@
 				<th class="right">Выложено:</th>
 			</tr>
 			<?php
-				$dblocation = "localhost"; // Имя сервера
-				$dbuser = "root";          // Имя пользователя
-				$dbpasswd = "";            // Пароль
-				$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
-				mysql_select_db('projectbd') or die('bd');
+				require 'Scripts/PHP/connection.php';
 			
 				$query = "SELECT *  FROM `animations`";
-				$result = mysql_query($query) or die('not:' .mysql_error());		
+				$result = mysqli_query($dbcnx, $query) or die('not:' .mysql_error());		
 				$rates = array();
 				
 				$i = 0;
-				while(($row = mysql_fetch_array($result)) && i <= 30)
+				while(($row = mysqli_fetch_array($result)) && i <= 30)
  				{
 					$rates[$i] = $row['rate'];
 					$i+=1;
@@ -62,9 +58,9 @@
 
 				for ($i = 0; $i < count($rates); $i++) {
 					$rate = $rates[$i];
-					$res = mysql_query("SELECT *  FROM `animations`
-					WHERE `rate`= $rate") or die('not:' .mysql_error());
-					$animation = mysql_fetch_array($res);
+					$res = mysqli_query($dbcnx, "SELECT *  FROM `animations`
+					WHERE `rate`= $rate") or die('not:' .mysqli_error($dbcnx));
+					$animation = mysqli_fetch_array($res);
 					$name = $animation['name'];
 					$author = $animation['author'];
 					$animCount = $animation['animationsCount'];
