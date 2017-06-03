@@ -3,19 +3,17 @@
 
 <head>
 	<link rel="stylesheet" href="../Styles/style.css">
-	<?
-		$dblocation = "localhost"; // Имя сервера
-		$dbuser = "root";          // Имя пользователя
-		$dbpasswd = "";            // Пароль
-		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+	<?php
+		require_once dirname(__FILE__).'/../Scripts/PHP/connection.php';
+		if (!$dbcnx) die('<p style="color:red">'.mysqli_connect_errno().' - '.mysqli_connect_error().'</p>');
+	
 		$ID = $_GET['ID'];
-
-		mysql_select_db('projectbd') or die('bd');
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
-		$result = mysql_query($query) or die('not:' .mysql_error());
-		$values = mysql_fetch_array($result);
+		$result = mysqli_query($dbcnx, $query) or die('not:' .mysqli_error($dbcnx));
+		$values = mysqli_fetch_array($result);
 	
 		$animAddres = $values['styleFile'];
+		$animCount = $values['animationsCount'];
 		echo "<link rel=\"stylesheet\" href=\"$animAddres\">"
 	?>
 
@@ -134,11 +132,8 @@
 		showAll();
 	</script>
 
-	<?
-	$animCount = $_GET['animCount'];
- 	echo "<script>var animCount = $animCount;</script>";
-	?>
-		<script type="text/javascript" src="../Scripts/JS/preparePreview.js"></script>
+	<?php echo "<script>var animCount = $animCount;</script>"; ?>
+	<script type="text/javascript" src="../Scripts/JS/preparePreview.js"></script>
 </body>
 
 </html>

@@ -51,28 +51,26 @@
 
 
 	<?php
-		$dblocation = "localhost"; // Имя сервера
-		$dbuser = "root";          // Имя пользователя
-		$dbpasswd = "";            // Пароль
-		$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
+		require_once dirname(__FILE__).'/../Scripts/PHP/connection.php';
+		if (!$dbcnx) die('<p style="color:red">'.mysqli_connect_errno().' - '.mysqli_connect_error().'</p>');
+	
 		$ID = $_GET['ID'];
-
-		mysql_select_db('projectbd') or die('bd');
 		$query = "SELECT *  FROM `animations` WHERE `ID` =$ID";
-		$result = mysql_query($query) or die('not:' .mysql_error());
-		$values = mysql_fetch_array($result);
+		$result = mysqli_query($dbcnx, $query) or die('not:' .mysqli_error($dbcnx));
+		$values = mysqli_fetch_array($result);
 	
 		$rate = $values['rate'];
 		$name = $values['name'];
 		$author = $values['author'];
 		$animCount = $values['animationsCount'];
-		$styleFile = file($values['styleFile']);
-	
+		$styleFile = file(dirname(__FILE__).'/'.$values['styleFile']);
+		
+		$styleCode = "";
 		for ($i = 0; $i < count($styleFile); $i++) {
 			$PCREpattern  =  '/\r\n|\r|\n/u';
 			$styleFile[$i] = preg_replace($PCREpattern, '', $styleFile[$i]);
- 
-			$styleCode = $styleCode.$styleFile[$i]."<br>";
+ 			$string = $styleFile[$i];
+			$styleCode = $styleCode.$string."<br>";
 		}
 		
 		echo "<script>
@@ -86,7 +84,7 @@
 	?>
 
 		<script>
-			document.getElementById("preview").src = "preview.php?animCount=" + animCount + "&ID=" + ID;
+			document.getElementById("preview").src = "preview.php?ID=" + ID;
 			document.getElementById("animName").innerText = name;
 			document.title = name;
 			document.getElementById("author").innerText = author;

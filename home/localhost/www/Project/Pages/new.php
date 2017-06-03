@@ -31,19 +31,16 @@
 				<th class="right">Выложено:</th>
 			</tr>
 			<span>
-			<?
-				$dblocation = "localhost"; // Имя сервера
-				$dbuser = "root";          // Имя пользователя
-				$dbpasswd = "";            // Пароль
-				$dbcnx = @mysql_connect($dblocation,$dbuser,$dbpasswd);
-				mysql_select_db('projectbd') or die('bd');
-			
+			<?php
+				require_once dirname(__FILE__).'/../Scripts/PHP/connection.php';
+				if (!$dbcnx) die('<p style="color:red">'.mysqli_connect_errno().' - '.mysqli_connect_error().'</p>');
+				
 				$query = "SELECT *  FROM `animations`";
-				$result = mysql_query($query) or die('not:' .mysql_error());		
+				$result = mysqli_query($dbcnx, $query) or die('not:' .mysqli_error($dbcnx));		
 				$times = array();
 				
 				$i = 0;
-				while(($row = mysql_fetch_array($result)) && i <= 30)
+				while(($row = mysqli_fetch_array($result)) && $i <= 30)
 				{
 					$times[$i] = $row['time'];
 					$i++;
@@ -68,9 +65,9 @@
 
 				for ($i = 0; $i < count($times); $i++) {
 					$time = $times[$i];
-					$res = mysql_query("SELECT *  FROM `animations`
-					WHERE `time`= '$time'") or die('not:' .mysql_error());
-					$animation = mysql_fetch_array($res);
+					$res = mysqli_query($dbcnx, "SELECT *  FROM `animations`
+					WHERE `time`= '$time'") or die('not:' .mysqli_error($dbcnx));
+					$animation = mysqli_fetch_array($res);
 					$name = $animation['name'];
 					$author = $animation['author'];
 					$animCount = $animation['animationsCount'];
@@ -110,15 +107,15 @@
 						
 						echo "$year назад";
 					}
-					else if ($mounth != 0){
-						if ($mounth==1) 
-							$mounth = $mounth." месяц";
-						else if ($mounth>1 && $mounth<5) 
-							$mounth = $mounth." месяца";
-						else if ($mounth>=5 && $mounth<=20)
-							$mounth = $minute." месяцев";
+					else if ($month != 0){
+						if ($month==1) 
+							$month = $month." месяц";
+						else if ($month>1 && $month<5) 
+							$month = $month." месяца";
+						else if ($month>=5 && $month<=20)
+							$month = $minute." месяцев";
 						
-						echo "$mounth назад";
+						echo "$month назад";
 					}
 					else if ($day != 0) {
 						if ($day==1 ||
