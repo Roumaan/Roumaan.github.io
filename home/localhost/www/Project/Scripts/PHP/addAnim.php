@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../../Styles/style.css">
 	
 	<style>
-		img {
+		.res {
 			margin-left: calc(50% - 100px);
 			width: 200px;
 		}
@@ -32,7 +32,7 @@
 				<li><a href="../../Pages/about.html">О сайте</a></li>
 			</ul>
 		</nav>
-		<div><svg></svg></div>
+		<a href="addAnim.html"><img src="../../Images/plus.png" class="add"></a>
 	</header>
 	
 	<main>
@@ -95,7 +95,7 @@
 		$time = date("Y-m-d H:i:s",time()-3600);
 		$write = "INSERT INTO `projectbd`.`animations` (`name`, `styleFile`, `author`, `rate`, `animationsCount`, `time`) VALUES ('$name', '$styleAddresDB', '$author', $rate , $animationsCount, '$time' );";
 		mysqli_query($dbcnx, $write) 
-			or die('not: ' ."<img src=\"..\..\Images\error.jpg\">
+			or die('not: ' ."<img class=\"res\" src=\"..\..\Images\error.jpg\">
 			<p>Не удалось отправить данные в базу данных!<p>");
 		$query = 'SELECT * FROM `animations`';
 		$result = mysqli_query($dbcnx, $query) or die('not: ' 	.mysqli_error($dbcnx));
@@ -114,10 +114,10 @@
 
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
 		writeToDB ($dbcnx,$_POST['name'], $_POST['author'], $uploadfile, "../Animations/anim$fileID.css"); 	
-		echo "<img src=\"../../Images/ok.jpg\">
+		echo "<img class=\"res\" src=\"../../Images/ok.jpg\">
 			<p>Отправка произведена успешно!<p>";
 	} else {
-		echo "<img src=\"../../images/error.jpg\">
+		echo "<img class=\"res\" src=\"../../images/error.jpg\">
 			<p>Не удалось получить файл!<p>";
 	}
 ?>
